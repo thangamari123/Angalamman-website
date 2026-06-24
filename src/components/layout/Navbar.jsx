@@ -125,9 +125,9 @@ const Navbar = () => {
               Courses
             </Link>
             
-            <a href="/#gallery" className="relative hover:text-[#F23B4E] transition-colors py-2 after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-[2px] after:bottom-0 after:left-0 after:bg-[#F23B4E] after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
+            <Link to="/gallery" className="relative hover:text-[#F23B4E] transition-colors py-2 after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-[2px] after:bottom-0 after:left-0 after:bg-[#F23B4E] after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
               Gallery
-            </a>
+            </Link>
             
             <Link to="/contact" className="relative hover:text-[#F23B4E] transition-colors py-2 after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-[2px] after:bottom-0 after:left-0 after:bg-[#F23B4E] after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
               Contact Us
@@ -200,7 +200,7 @@ const Navbar = () => {
 
             <Link to="/courses" className="text-[#0B1C40] hover:text-[#F23B4E] hover:bg-gray-50 px-4 py-3 rounded-lg font-bold text-[17px] transition-colors" onClick={() => setIsOpen(false)}>Courses</Link>
             
-            <a href="/#gallery" className="text-[#0B1C40] hover:text-[#F23B4E] hover:bg-gray-50 px-4 py-3 rounded-lg font-bold text-[17px] transition-colors" onClick={() => setIsOpen(false)}>Gallery</a>
+            <Link to="/gallery" className="text-[#0B1C40] hover:text-[#F23B4E] hover:bg-gray-50 px-4 py-3 rounded-lg font-bold text-[17px] transition-colors" onClick={() => setIsOpen(false)}>Gallery</Link>
             
             <Link to="/contact" className="text-[#0B1C40] hover:text-[#F23B4E] hover:bg-gray-50 px-4 py-3 rounded-lg font-bold text-[17px] transition-colors" onClick={() => setIsOpen(false)}>Contact Us</Link>
           </nav>

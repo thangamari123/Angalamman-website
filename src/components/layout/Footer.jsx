@@ -96,7 +96,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3 pb-5 border-b border-gray-700/50 border-dashed">
                 <ChevronRight size={18} className="text-[#E51937] shrink-0" strokeWidth={3} />
-                <a href="/#gallery" className="font-bold text-[15px] hover:text-[#E51937] transition-colors">Gallery</a>
+                <Link to="/gallery" className="font-bold text-[15px] hover:text-[#E51937] transition-colors">Gallery</Link>
               </li>
               <li className="flex items-center gap-3">
                 <ChevronRight size={18} className="text-[#E51937] shrink-0" strokeWidth={3} />

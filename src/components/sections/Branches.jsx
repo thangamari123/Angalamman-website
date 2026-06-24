@@ -8,14 +8,14 @@ const Branches = () => {
   const branchData = [
     {
       title: "DHARMAPURI BRANCH",
-      img: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=800",
+      img: "/images/dharmapuri-branch.webp",
       address: "Nanjundeswara towers, Pennagaram main road,\nNear DNV International School, DNV Nagar,\nDharmapuri",
       pin: "636701 .",
       phones: "+91 97519 20888  |  +91 77081 23707"
     },
     {
       title: "TIRUVANNAMALAI BRANCH",
-      img: "https://images.unsplash.com/photo-1600085816738-4b7121c2718e?auto=format&fit=crop&q=80&w=800",
+      img: "/images/tvm-branch.webp",
       address: "Vellore Main Road, Puthumallavadi,\nTiruvannamalai",
       pin: "606 805.",
       phones: "+91 86086 09555  |  +91 96296 60026"
@@ -34,8 +34,8 @@ const Branches = () => {
     <div key={index} className="h-full">
       <div className="bg-white rounded-3xl shadow-[0_15px_40px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)] transition-shadow duration-300 overflow-visible relative pb-6 md:pb-10 border border-gray-100 flex flex-col h-full mx-1">
         {/* Image */}
-        <div className="h-[180px] md:h-[260px] rounded-t-3xl overflow-hidden relative">
-          <div className="absolute inset-0 bg-black/10 z-10 mix-blend-overlay"></div>
+        <div className="w-full aspect-video rounded-t-3xl overflow-hidden relative bg-gray-100">
+          <div className="absolute inset-0 bg-black/5 z-10 mix-blend-overlay"></div>
           <img 
             src={branch.img} 
             alt={branch.title}
@@ -44,12 +44,12 @@ const Branches = () => {
         </div>
 
         {/* Overlapping Icon */}
-        <div className="absolute top-[145px] md:top-[220px] left-1/2 -translate-x-1/2 w-[70px] h-[70px] md:w-[88px] md:h-[88px] bg-[#0B1C40] rounded-full flex items-center justify-center border-[4px] md:border-[5px] border-white shadow-md z-20">
+        <div className="w-[70px] h-[70px] md:w-[88px] md:h-[88px] bg-[#0B1C40] rounded-full flex items-center justify-center border-[4px] md:border-[5px] border-white shadow-md z-20 mx-auto -mt-[35px] md:-mt-[44px] relative">
           <MapPin size={28} className="text-white md:w-[40px] md:h-[40px]" strokeWidth={2} />
         </div>
 
         {/* Content */}
-        <div className="pt-14 md:pt-20 px-5 md:px-10 flex flex-col items-center flex-grow">
+        <div className="pt-4 md:pt-6 px-5 md:px-10 flex flex-col items-center flex-grow">
           <h3 className="text-[#0B1C40] text-[18px] md:text-[24px] font-[800] uppercase tracking-wide text-center">
             {branch.title}
           </h3>

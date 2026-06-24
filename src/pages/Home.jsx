@@ -7,7 +7,6 @@ import Strategy from '../components/sections/Strategy';
 import Achievements from '../components/sections/Achievements';
 import Testimonials from '../components/sections/Testimonials';
 import HowToApply from '../components/sections/HowToApply';
-import Gallery from '../components/sections/Gallery';
 import LatestNews from '../components/sections/LatestNews';
 import Branches from '../components/sections/Branches';
 import Contact from '../components/sections/Contact';
@@ -23,7 +22,6 @@ const Home = () => {
       <Achievements />
       <Testimonials />
       <HowToApply />
-      <Gallery />
       <LatestNews />
       <Branches />
       <Contact />

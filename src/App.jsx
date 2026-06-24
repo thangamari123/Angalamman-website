@@ -14,6 +14,7 @@ import AboutPage from './pages/AboutPage';
 import UniversityLifePage from './pages/UniversityLifePage';
 import FAQPage from './pages/FAQPage';
 import ContactPage from './pages/ContactPage';
+import GalleryPage from './pages/GalleryPage';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             <Route path="/unity-diversity" element={<UnityDiversity />} />
             <Route path="/social-responsibility" element={<SocialResponsibility />} />
             <Route path="/application" element={<Application />} />
+            <Route path="/gallery" element={<GalleryPage />} />
           </Routes>
         </div>
 

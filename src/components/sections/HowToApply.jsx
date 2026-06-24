@@ -11,30 +11,24 @@ const HowToApply = () => {
       title: "Complete\nApplication Form",
       desc: "Our university camp provide a vibrant & supportive community that embraces diversity.",
       img: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=800",
-      icon: <FileEdit size={22} className="md:w-[26px] md:h-[26px]" strokeWidth={2.5} />,
-      color: "#F23B4E",
-      bgClass: "bg-[#FFF5F6]",
-      cardHoverBg: "hover:bg-[#F23B4E]",
+      icon: <FileEdit size={20} className="md:w-[24px] md:h-[24px]" strokeWidth={2.5} />,
+      theme: "red"
     },
     {
       id: "02",
       title: "Application\nReview",
       desc: "A diverse student body enhances learning experience & prepares students to thrive globally.",
       img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800",
-      icon: <ClipboardCheck size={22} className="md:w-[26px] md:h-[26px]" strokeWidth={2.5} />,
-      color: "#0B1C40",
-      bgClass: "bg-blue-50",
-      cardHoverBg: "hover:bg-[#0B1C40]",
+      icon: <ClipboardCheck size={20} className="md:w-[24px] md:h-[24px]" strokeWidth={2.5} />,
+      theme: "blue"
     },
     {
       id: "03",
       title: "Payment\nof Fees",
       desc: "You will have access to state-of-the-art facilities and cutting edge research laboratories.",
       img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800",
-      icon: <IndianRupee size={22} className="md:w-[26px] md:h-[26px]" strokeWidth={2.5} />,
-      color: "#F23B4E",
-      bgClass: "bg-[#FFF5F6]",
-      cardHoverBg: "hover:bg-[#F23B4E]",
+      icon: <IndianRupee size={20} className="md:w-[24px] md:h-[24px]" strokeWidth={2.5} />,
+      theme: "red"
     }
   ];
 
@@ -46,29 +40,38 @@ const HowToApply = () => {
     return () => clearInterval(timer);
   }, [stepsData.length]);
 
-  const renderCard = (step, index) => (
-    <div key={index} className="h-full">
-      <div className={`bg-white rounded-[1.5rem] border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.06)] hover:-translate-y-2 transition-all duration-500 relative group flex flex-col z-10 h-full overflow-hidden ${step.cardHoverBg}`}>
-        <div className={`h-[130px] md:h-[180px] ${step.bgClass} relative overflow-hidden`}>
-          <div className="absolute top-4 left-4 w-9 h-9 md:w-10 md:h-10 bg-white rounded-xl flex items-center justify-center text-[16px] md:text-[18px] font-[900] shadow-sm z-10" style={{ color: step.color }}>
-            {step.id}
+  const renderCard = (step, index) => {
+    const isRed = step.theme === 'red';
+    const bgClass = isRed ? 'bg-[#FFF0F2]' : 'bg-[#F0F4FF]';
+    const iconBg = isRed ? 'bg-[#F23B4E]' : 'bg-[#0B1C40]';
+    const titleColor = isRed ? 'text-[#901A25]' : 'text-[#0B1C40]';
+    const tagBg = isRed ? 'bg-[#F23B4E]' : 'bg-[#0B1C40]';
+
+    return (
+      <div key={index} className="h-full px-1 sm:px-0">
+        <div className={`${bgClass} rounded-2xl md:rounded-[2rem] shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] hover:-translate-y-1.5 transition-all duration-500 relative group flex flex-col z-10 h-full overflow-hidden border border-white`}>
+          <div className="h-[110px] md:h-[180px] relative overflow-hidden">
+            <div className="absolute inset-0 bg-black/10 z-10 mix-blend-overlay transition-opacity duration-500 group-hover:bg-transparent"></div>
+            <div className="absolute top-3 left-3 md:top-4 md:left-4 w-8 h-8 md:w-10 md:h-10 ${tagBg} text-white rounded-lg md:rounded-xl flex items-center justify-center text-[14px] md:text-[16px] font-[900] shadow-md z-20 bg-[#0B1C40]" style={{ backgroundColor: isRed ? '#F23B4E' : '#0B1C40' }}>
+              {step.id}
+            </div>
+            <img src={step.img} alt={step.title.replace('\n', ' ')} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
           </div>
-          <img src={step.img} alt={step.title.replace('\n', ' ')} className="w-full h-full object-cover mix-blend-multiply opacity-90 group-hover:scale-110 transition-transform duration-700" />
-        </div>
-        <div className="p-5 md:p-8 relative text-center flex-grow flex flex-col">
-          <div className="mx-auto w-[50px] h-[50px] md:w-[70px] md:h-[70px] bg-white border border-gray-100 rounded-2xl flex items-center justify-center shadow-[0_4px_15px_rgba(0,0,0,0.05)] -mt-[40px] md:-mt-[55px] mb-4 relative z-20 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)]" style={{ color: step.color }}>
-            {step.icon}
+          <div className="p-4 md:p-8 relative text-center flex-grow flex flex-col items-center">
+            <div className={`w-[48px] h-[48px] md:w-[68px] md:h-[68px] ${iconBg} text-white rounded-full flex items-center justify-center shadow-lg -mt-[34px] md:-mt-[50px] mb-3 md:mb-5 relative z-20 border-[3px] border-white group-hover:scale-110 transition-transform duration-500`}>
+              {step.icon}
+            </div>
+            <h3 className={`text-[17px] md:text-[22px] font-[800] ${titleColor} mb-2 md:mb-3 leading-tight whitespace-pre-line`}>
+              {step.title}
+            </h3>
+            <p className="text-[#4F5B73] leading-relaxed text-[12.5px] md:text-[15px] font-medium px-1">
+              {step.desc}
+            </p>
           </div>
-          <h3 className="text-[17px] md:text-[20px] font-[800] text-[#0B1C40] group-hover:text-white mb-3 leading-tight whitespace-pre-line transition-colors duration-500">
-            {step.title}
-          </h3>
-          <p className="text-[#4F5B73] group-hover:text-white/90 leading-relaxed text-[13px] md:text-[14.5px] transition-colors duration-500">
-            {step.desc}
-          </p>
         </div>
       </div>
-    </div>
-  );
+    );
+  };
 
   return (
     <section className="py-16 md:py-24 bg-gradient-to-b from-white to-gray-50/50 overflow-hidden">
@@ -93,7 +96,7 @@ const HowToApply = () => {
         </div>
 
         {/* Mobile Automatic Slider (Hidden on Desktop) */}
-        <div className="block md:hidden mt-8 mb-16 relative max-w-[320px] mx-auto min-h-[420px]">
+        <div className="block md:hidden mt-8 mb-14 relative max-w-[320px] mx-auto min-h-[300px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeIndex}
