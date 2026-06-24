@@ -1,6 +1,71 @@
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Calendar, GraduationCap, Users, Scale, ArrowRight } from 'lucide-react';
+
+/* ── ClassRoom images ── */
+const classroomImages = [
+  'https://res.cloudinary.com/dcldlvuib/image/upload/v1782288179/1_bbxl1z.jpg',
+  'https://res.cloudinary.com/dcldlvuib/image/upload/v1782288178/2_yajiwk.jpg',
+  'https://res.cloudinary.com/dcldlvuib/image/upload/v1782288177/3_ayymct.jpg',
+  'https://res.cloudinary.com/dcldlvuib/image/upload/v1782288171/4_brrlyy.jpg',
+  'https://res.cloudinary.com/dcldlvuib/image/upload/v1782288170/5_lznhn4.jpg',
+  'https://res.cloudinary.com/dcldlvuib/image/upload/v1782288169/6_mfn2on.jpg',
+  'https://res.cloudinary.com/dcldlvuib/image/upload/v1782288168/7_srrxaf.jpg',
+  'https://res.cloudinary.com/dcldlvuib/image/upload/v1782288168/8_ne49io.jpg',
+];
+
+/* ── Auto-sliding image carousel ── */
+const StrategySlider = () => {
+  const [current, setCurrent] = useState(0);
+  const timerRef = useRef(null);
+
+  const next = () => setCurrent(c => (c + 1) % classroomImages.length);
+
+  useEffect(() => {
+    timerRef.current = setInterval(next, 3000);
+    return () => clearInterval(timerRef.current);
+  }, []);
+
+  return (
+    <div className="relative w-full h-full rounded-xl md:rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
+      {classroomImages.map((src, i) => (
+        <img
+          key={i}
+          src={src}
+          alt={`Classroom slide ${i + 1}`}
+          loading="lazy"
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+            i === current ? 'opacity-100' : 'opacity-0'
+          }`}
+        />
+      ))}
+
+      {/* Overlay gradient at bottom */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0B1C40]/60 via-transparent to-transparent pointer-events-none" />
+
+      {/* Dot indicators */}
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+        {classroomImages.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className={`rounded-full transition-all duration-300 ${
+              i === current
+                ? 'w-6 h-2 bg-[#F23B4E]'
+                : 'w-2 h-2 bg-white/60 hover:bg-white'
+            }`}
+          />
+        ))}
+      </div>
+
+      {/* Photo count badge */}
+      <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md text-white text-[12px] font-bold px-3 py-1.5 rounded-full z-10">
+        {current + 1} / {classroomImages.length}
+      </div>
+    </div>
+  );
+};
 
 const Strategy = () => {
   return (
@@ -45,14 +110,9 @@ const Strategy = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="w-full h-[200px] sm:h-[300px] md:h-[450px] rounded-xl md:rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.12)]"
+            className="w-full h-[250px] sm:h-[350px] md:h-[450px] relative"
           >
-            {/* Using a nice institutional building image as placeholder */}
-            <img 
-              src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&q=80&w=1200" 
-              alt="Sri Angalamman Paramedical Institute Building" 
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-in-out"
-            />
+            <StrategySlider />
           </motion.div>
         </div>
 

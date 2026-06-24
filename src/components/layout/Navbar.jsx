@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, Phone, Mail, User, GraduationCap } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,6 +24,31 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Framer Motion Variants
+  const overlayVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.3 } }
+  };
+
+  const drawerVariants = {
+    hidden: { x: '100%', transition: { type: 'tween', duration: 0.3, ease: 'easeInOut' } },
+    visible: { 
+      x: 0, 
+      transition: { 
+        type: 'spring', 
+        damping: 25, 
+        stiffness: 200,
+        staggerChildren: 0.08,
+        delayChildren: 0.1
+      } 
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: 20 },
+    visible: { opacity: 1, x: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } }
+  };
 
   return (
     <header className="sticky w-full z-50 flex flex-col top-0 bg-white">
@@ -67,7 +93,7 @@ const Navbar = () => {
       </div>
 
       {/* Main Navbar */}
-      <div className={`w-full bg-white transition-all duration-300 ${scrolled ? 'shadow-lg py-2' : 'border-b border-gray-100 py-3 md:py-4'}`}>
+      <div className={`w-full bg-white transition-all duration-300 relative z-[60] ${scrolled ? 'shadow-lg py-2' : 'border-b border-gray-100 py-3 md:py-4'}`}>
         <div className="flex justify-between items-center px-4 md:px-8 lg:px-12 max-w-[1920px] mx-auto">
           
           {/* Logo Section */}
@@ -136,13 +162,13 @@ const Navbar = () => {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-2 xl:gap-3 ml-4">
-            <a href="/#login" className="group relative flex items-center justify-center border-2 border-[#0B1C40] overflow-hidden rounded-md px-4 xl:px-5 py-2 cursor-pointer text-[#0B1C40] hover:text-white font-bold text-sm whitespace-nowrap transition-all duration-300">
+            <Link to="/student-portal" className="group relative flex items-center justify-center border-2 border-[#0B1C40] overflow-hidden rounded-md px-4 xl:px-5 py-2 cursor-pointer text-[#0B1C40] hover:text-white font-bold text-sm whitespace-nowrap transition-all duration-300">
               <span className="relative z-10 flex items-center gap-1.5">
                 <User size={14} strokeWidth={2.5} />
                 Student Portal
               </span>
               <div className="absolute inset-0 h-full w-0 bg-[#0B1C40] transition-all duration-300 ease-out group-hover:w-full"></div>
-            </a>
+            </Link>
             <Link to="/application" className="group relative flex items-center justify-center bg-[#F23B4E] overflow-hidden rounded-md px-5 xl:px-6 py-2.5 cursor-pointer text-white font-bold text-sm whitespace-nowrap shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
               <span className="relative z-10 flex items-center gap-1.5 tracking-wide">
                 <GraduationCap size={16} strokeWidth={2.5} />
@@ -154,68 +180,119 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center">
-            <button className="text-[#0B1C40] p-2 hover:bg-gray-100 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-[#0B1C40]/20" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
+            <button 
+              className="text-[#0B1C40] p-2 hover:bg-gray-100 rounded-lg transition-colors focus:outline-none" 
+              onClick={() => setIsOpen(!isOpen)} 
+              aria-label="Toggle menu"
+            >
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={isOpen ? "close" : "open"}
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  {isOpen ? <X size={28} /> : <Menu size={28} />}
+                </motion.div>
+              </AnimatePresence>
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Off-Canvas Menu Overlay */}
-      <div 
-        className={`lg:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-[45] transition-opacity duration-300 ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`} 
-        style={{ top: scrolled ? '72px' : '110px' }} // Approximate offsets based on header height
-        onClick={() => setIsOpen(false)}
-      />
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            {/* Mobile Off-Canvas Menu Overlay */}
+            <motion.div 
+              variants={overlayVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              className="lg:hidden fixed inset-0 bg-[#0B1C40]/80 backdrop-blur-sm z-[45]" 
+              style={{ top: scrolled ? '72px' : '110px' }}
+              onClick={() => setIsOpen(false)}
+            />
 
-      {/* Mobile Off-Canvas Drawer */}
-      <div 
-        className={`lg:hidden fixed bottom-0 right-0 w-[85%] sm:w-[350px] bg-white z-[50] shadow-2xl transition-transform duration-300 ease-in-out transform flex flex-col ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
-        style={{ top: scrolled ? '72px' : '110px' }}
-        onClick={e => e.stopPropagation()}
-      >
-        <div className="flex-1 overflow-y-auto">
-          <nav className="flex flex-col px-6 py-8 gap-2">
-            <a href="/#home" className="text-[#0B1C40] hover:text-[#F23B4E] hover:bg-gray-50 px-4 py-3 rounded-lg font-bold text-[17px] transition-colors" onClick={() => setIsOpen(false)}>Home</a>
-            
-            {/* Mobile Pages Submenu */}
-            <div>
-              <button
-                className="w-full flex items-center justify-between text-[#0B1C40] hover:text-[#F23B4E] hover:bg-gray-50 px-4 py-3 rounded-lg font-bold text-[17px] transition-colors"
-                onClick={() => setPagesOpen(!pagesOpen)}
+            {/* Mobile Off-Canvas Drawer */}
+            <motion.div 
+              variants={drawerVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              className="lg:hidden fixed bottom-0 right-0 w-[85%] sm:w-[350px] bg-white z-[50] shadow-2xl flex flex-col"
+              style={{ top: scrolled ? '72px' : '110px' }}
+              onClick={e => e.stopPropagation()}
+            >
+              <div className="flex-1 overflow-y-auto">
+                <nav className="flex flex-col px-6 py-8 gap-1.5">
+                  <motion.div variants={itemVariants}>
+                    <a href="/#home" className="block text-[#0B1C40] hover:text-[#F23B4E] hover:bg-gray-50/80 px-4 py-3 rounded-lg font-bold text-[17px] transition-colors" onClick={() => setIsOpen(false)}>Home</a>
+                  </motion.div>
+                  
+                  {/* Mobile Pages Submenu */}
+                  <motion.div variants={itemVariants}>
+                    <button
+                      className="w-full flex items-center justify-between text-[#0B1C40] hover:text-[#F23B4E] hover:bg-gray-50/80 px-4 py-3 rounded-lg font-bold text-[17px] transition-colors"
+                      onClick={() => setPagesOpen(!pagesOpen)}
+                    >
+                      Pages
+                      <ChevronDown size={18} className={`transition-transform duration-300 ${pagesOpen ? 'rotate-180 text-[#F23B4E]' : ''}`} />
+                    </button>
+                    <AnimatePresence>
+                      {pagesOpen && (
+                        <motion.div 
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3, ease: "easeInOut" }}
+                          className="overflow-hidden"
+                        >
+                          <div className="ml-4 mt-1 border-l-2 border-[#F23B4E]/30 pl-4 flex flex-col gap-1 pb-2">
+                            <Link to="/about" className="block text-[#4F5B73] hover:text-[#F23B4E] hover:bg-gray-50/80 px-3 py-2.5 rounded-lg font-semibold text-[15px] transition-colors" onClick={() => setIsOpen(false)}>About Us</Link>
+                            <Link to="/university-life" className="block text-[#4F5B73] hover:text-[#F23B4E] hover:bg-gray-50/80 px-3 py-2.5 rounded-lg font-semibold text-[15px] transition-colors" onClick={() => setIsOpen(false)}>University Life</Link>
+                            <Link to="/faq" className="block text-[#4F5B73] hover:text-[#F23B4E] hover:bg-gray-50/80 px-3 py-2.5 rounded-lg font-semibold text-[15px] transition-colors" onClick={() => setIsOpen(false)}>Support &amp; Guidance</Link>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
+
+                  <motion.div variants={itemVariants}>
+                    <a href="/#admission" className="block text-[#0B1C40] hover:text-[#F23B4E] hover:bg-gray-50/80 px-4 py-3 rounded-lg font-bold text-[17px] transition-colors" onClick={() => setIsOpen(false)}>Admissions</a>
+                  </motion.div>
+
+                  <motion.div variants={itemVariants}>
+                    <Link to="/courses" className="block text-[#0B1C40] hover:text-[#F23B4E] hover:bg-gray-50/80 px-4 py-3 rounded-lg font-bold text-[17px] transition-colors" onClick={() => setIsOpen(false)}>Courses</Link>
+                  </motion.div>
+                  
+                  <motion.div variants={itemVariants}>
+                    <Link to="/gallery" className="block text-[#0B1C40] hover:text-[#F23B4E] hover:bg-gray-50/80 px-4 py-3 rounded-lg font-bold text-[17px] transition-colors" onClick={() => setIsOpen(false)}>Gallery</Link>
+                  </motion.div>
+                  
+                  <motion.div variants={itemVariants}>
+                    <Link to="/contact" className="block text-[#0B1C40] hover:text-[#F23B4E] hover:bg-gray-50/80 px-4 py-3 rounded-lg font-bold text-[17px] transition-colors" onClick={() => setIsOpen(false)}>Contact Us</Link>
+                  </motion.div>
+                </nav>
+              </div>
+
+              {/* Mobile Menu Footer CTA */}
+              <motion.div 
+                variants={itemVariants}
+                className="p-6 pb-[85px] bg-gray-50 border-t border-gray-100 flex flex-col gap-4 shadow-[0_-4px_20px_rgba(0,0,0,0.03)]"
               >
-                Pages
-                <ChevronDown size={18} className={`transition-transform duration-200 ${pagesOpen ? 'rotate-180 text-[#F23B4E]' : ''}`} />
-              </button>
-              {pagesOpen && (
-                <div className="ml-4 mt-1 border-l-2 border-[#F23B4E]/30 pl-4 flex flex-col gap-1">
-                  <Link to="/about" className="text-[#4F5B73] hover:text-[#F23B4E] hover:bg-gray-50 px-3 py-2.5 rounded-lg font-semibold text-[15px] transition-colors" onClick={() => setIsOpen(false)}>About Us</Link>
-                  <Link to="/university-life" className="text-[#4F5B73] hover:text-[#F23B4E] hover:bg-gray-50 px-3 py-2.5 rounded-lg font-semibold text-[15px] transition-colors" onClick={() => setIsOpen(false)}>University Life</Link>
-                  <Link to="/faq" className="text-[#4F5B73] hover:text-[#F23B4E] hover:bg-gray-50 px-3 py-2.5 rounded-lg font-semibold text-[15px] transition-colors" onClick={() => setIsOpen(false)}>Support &amp; Guidance</Link>
-                </div>
-              )}
-            </div>
-
-            <a href="/#admission" className="text-[#0B1C40] hover:text-[#F23B4E] hover:bg-gray-50 px-4 py-3 rounded-lg font-bold text-[17px] transition-colors" onClick={() => setIsOpen(false)}>Admissions</a>
-
-            <Link to="/courses" className="text-[#0B1C40] hover:text-[#F23B4E] hover:bg-gray-50 px-4 py-3 rounded-lg font-bold text-[17px] transition-colors" onClick={() => setIsOpen(false)}>Courses</Link>
-            
-            <Link to="/gallery" className="text-[#0B1C40] hover:text-[#F23B4E] hover:bg-gray-50 px-4 py-3 rounded-lg font-bold text-[17px] transition-colors" onClick={() => setIsOpen(false)}>Gallery</Link>
-            
-            <Link to="/contact" className="text-[#0B1C40] hover:text-[#F23B4E] hover:bg-gray-50 px-4 py-3 rounded-lg font-bold text-[17px] transition-colors" onClick={() => setIsOpen(false)}>Contact Us</Link>
-          </nav>
-        </div>
-
-        {/* Mobile Menu Footer CTA */}
-        <div className="p-6 bg-gray-50 border-t border-gray-100 flex flex-col gap-4">
-          <a href="/#login" className="flex items-center justify-center border-2 border-[#0B1C40] rounded-md px-6 py-3.5 cursor-pointer hover:bg-[#0B1C40] hover:text-white transition-all duration-300 text-[#0B1C40] font-bold text-[16px]" onClick={() => setIsOpen(false)}>
-            <User size={18} className="mr-2" /> Student Portal
-          </a>
-          <Link to="/application" className="flex items-center justify-center bg-[#F23B4E] rounded-md px-6 py-3.5 cursor-pointer hover:bg-[#0B1C40] transition-all duration-300 text-white font-bold text-[16px] shadow-md" onClick={() => setIsOpen(false)}>
-            <GraduationCap size={18} className="mr-2" /> Application Form
-          </Link>
-        </div>
-      </div>
+                <Link to="/student-portal" className="flex items-center justify-center border-2 border-[#0B1C40] rounded-md px-6 py-3.5 cursor-pointer hover:bg-[#0B1C40] hover:text-white transition-all duration-300 text-[#0B1C40] font-bold text-[16px]" onClick={() => setIsOpen(false)}>
+                  <User size={18} className="mr-2" /> Student Portal
+                </Link>
+                <Link to="/application" className="flex items-center justify-center bg-[#F23B4E] rounded-md px-6 py-3.5 cursor-pointer hover:bg-[#D92B3E] active:scale-[0.98] transition-all duration-300 text-white font-bold text-[16px] shadow-lg shadow-[#F23B4E]/20" onClick={() => setIsOpen(false)}>
+                  <GraduationCap size={18} className="mr-2" /> Application Form
+                </Link>
+              </motion.div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </header>
   );
 };
