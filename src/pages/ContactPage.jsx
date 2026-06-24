@@ -174,7 +174,7 @@ const ContactPage = () => {
     <main className="bg-white min-h-screen">
 
       {/* ── PAGE BANNER ── */}
-      <div className="relative h-[260px] sm:h-[320px] md:h-[380px] overflow-hidden">
+      <div className="relative h-[160px] sm:h-[320px] md:h-[380px] overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=1600"
           alt="Contact Us"

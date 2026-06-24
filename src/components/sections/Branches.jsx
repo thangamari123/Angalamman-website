@@ -108,7 +108,7 @@ const Branches = () => {
             </div>
             <div className="h-[2px] w-12 md:w-20 bg-[#F23B4E]"></div>
           </div>
-          <h2 className="text-3xl md:text-[54px] font-[900] text-[#0B1C40] uppercase tracking-wide leading-none mb-4 md:mb-6">
+          <h2 className="text-2xl md:text-4xl font-[900] text-[#0B1C40] uppercase tracking-wide leading-none mb-4 md:mb-6">
             OUR BRANCH
           </h2>
           <div className="flex items-center justify-center gap-1.5">

@@ -43,7 +43,7 @@ const Contact = () => {
                 <div className="h-[2px] w-8 md:w-10 bg-[#F23B4E] rounded-full"></div>
                 <span className="text-[#F23B4E] font-bold tracking-widest text-[12px] md:text-[13px] uppercase">Contact Us</span>
               </div>
-              <h2 className="text-2xl md:text-4xl font-[900] text-white mb-3">Get In Touch</h2>
+              <h2 className="text-xl md:text-3xl font-[900] text-white mb-3">Get In Touch</h2>
               <p className="text-white/70 text-[14px] md:text-[16px] mb-8 leading-relaxed font-medium pr-4">
                 Take the first step towards a rewarding healthcare career. Contact us for admissions or any other enquiries.
               </p>

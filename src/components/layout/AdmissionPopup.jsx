@@ -53,66 +53,42 @@ const AdmissionPopup = () => {
             </button>
 
             {/* Left Side: Premium Image Layout (Desktop) */}
-            <div className="hidden md:block md:w-[45%] relative bg-[#0B1C40]">
+            <div className="hidden md:block md:w-[45%] relative bg-gray-100">
               <img
                 src="/images/hero-imge4.webp"
                 alt="Admissions Open"
-                className="absolute inset-0 w-full h-full object-cover opacity-90 mix-blend-overlay"
+                className="absolute inset-0 w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#05112B] via-[#05112B]/40 to-transparent"></div>
-              
-              <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/10 backdrop-blur-md text-white rounded-full text-xs font-bold w-fit mb-4 border border-white/20">
-                  <Sparkles size={14} className="text-[#F23B4E]" />
-                  Session 2025-2026
-                </div>
-                <h3 className="font-[900] text-3xl text-white leading-[1.1] mb-2 tracking-tight">
-                  Shape Your <br/><span className="text-[#F23B4E]">Medical Future</span>
-                </h3>
-                <p className="text-gray-300 text-sm leading-relaxed">
-                  Join Tamil Nadu's premier paramedical institute and turn your passion for healthcare into a rewarding profession.
-                </p>
-              </div>
             </div>
 
             {/* Right Side: Content & Actions */}
             <div className="w-full md:w-[55%] flex flex-col justify-center bg-white relative">
               
               {/* Mobile Header Image (Only on Mobile) */}
-              <div className="md:hidden w-full h-[180px] sm:h-[220px] relative overflow-hidden">
+              <div className="md:hidden w-full h-[200px] sm:h-[240px] relative overflow-hidden bg-gray-100">
                 <img
                   src="/images/hero-imge4.webp"
                   alt="Admissions Open"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1C40] to-transparent/40"></div>
-                <div className="absolute bottom-4 left-5 right-5">
-                   <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white/20 backdrop-blur-md text-white rounded-full text-[11px] font-bold w-fit mb-2 border border-white/20">
-                    <Sparkles size={12} className="text-[#F23B4E]" />
-                    Session 2025-2026
-                  </div>
-                  <h3 className="font-[900] text-xl sm:text-2xl text-white leading-[1.1] tracking-tight">
-                    Shape Your <span className="text-[#F23B4E]">Future</span>
-                  </h3>
-                </div>
               </div>
 
               {/* Text Content */}
-              <div className="p-6 sm:p-8 md:p-10 lg:p-12">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#F23B4E]/10 text-[#F23B4E] rounded-md text-sm font-bold w-fit mb-4 md:mb-5">
+              <div className="p-6 sm:p-8 md:p-10">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#F23B4E]/10 text-[#F23B4E] rounded-md text-sm font-bold w-fit mb-3">
                   <span className="relative flex h-2.5 w-2.5">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F23B4E] opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-[#F23B4E] ml-[1px] mt-[1px]"></span>
                   </span>
-                  Admissions Now Open
+                  Session 2025-2026
                 </div>
 
-                <h2 className="text-[24px] sm:text-[28px] md:text-[32px] font-[900] text-[#0B1C40] leading-[1.1] mb-3">
-                  Begin Your Journey <br className="hidden lg:block"/> With SAPI
+                <h2 className="text-[24px] sm:text-[28px] font-[900] text-[#0B1C40] leading-[1.1] mb-2">
+                  Begin Your Journey
                 </h2>
                 
-                <p className="text-gray-600 text-[14px] md:text-[15px] leading-[1.6] mb-8 font-medium">
-                  We are now accepting applications for our premium paramedical diploma courses. Secure your seat today and train in our advanced medical laboratories.
+                <p className="text-gray-600 text-[14px] sm:text-[15px] leading-[1.5] mb-6 font-medium">
+                  Secure your seat for our premium paramedical diploma courses today.
                 </p>
 
                 {/* Buttons Grid */}
@@ -134,10 +110,6 @@ const AdmissionPopup = () => {
                     Call Admission Desk
                   </a>
                 </div>
-
-                <p className="text-center text-xs text-gray-400 mt-6 font-medium">
-                  Limited seats available for the 2025 batch.
-                </p>
               </div>
             </div>
           </motion.div>

@@ -24,7 +24,7 @@ const Placement = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Career & Placement Assistance</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Career & Placement Assistance</h2>
               <p className="text-lg text-gray-600 leading-relaxed mb-8">
                 We believe our responsibility doesn't end with education. SAPI provides comprehensive placement guidance to ensure our students step into successful careers. 
               </p>

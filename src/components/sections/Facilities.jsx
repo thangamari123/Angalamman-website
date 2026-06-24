@@ -21,7 +21,7 @@ const Facilities = () => {
     <section id="facilities" className="py-20 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Campus Facilities</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Campus Facilities</h2>
           <p className="text-lg text-gray-600">
             State-of-the-art infrastructure providing an ideal environment for academic and personal growth.
           </p>

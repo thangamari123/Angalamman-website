@@ -98,7 +98,7 @@ const Gallery = () => {
             <span className="text-[#F23B4E] font-bold tracking-widest text-[12px] md:text-[14px] uppercase">Our Moments</span>
             <div className="h-[2px] w-8 md:w-14 bg-[#F23B4E] rounded-full"></div>
           </div>
-          <h2 className="text-2xl md:text-4xl font-[900] text-[#0B1C40] mb-2">Photo Gallery</h2>
+          <h2 className="text-xl md:text-3xl font-[900] text-[#0B1C40] mb-2">Photo Gallery</h2>
           <p className="text-[#4F5B73] text-[13px] md:text-[16px] max-w-xl mx-auto">
             A glimpse into the vibrant campus life, events, and advanced facilities at SAPI.
           </p>

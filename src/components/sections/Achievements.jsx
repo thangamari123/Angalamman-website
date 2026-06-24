@@ -65,7 +65,7 @@ const Achievements = () => {
             <div className="w-8 md:w-12 h-[2px] bg-[#E53935]"></div>
           </div>
           
-          <h2 className="text-[1.6rem] sm:text-3xl md:text-4xl font-[900] text-[#0B1C40] mb-4 md:mb-6 tracking-tight leading-tight">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-[900] text-[#0B1C40] mb-4 md:mb-6 tracking-tight leading-tight">
             Our Achievements & Highlights
           </h2>
           

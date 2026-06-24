@@ -29,7 +29,7 @@ const VisionMission = () => {
               <div className="w-16 h-16 bg-secondary/20 rounded-2xl flex items-center justify-center mb-6">
                 <Lightbulb size={32} className="text-secondary" />
               </div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Vision</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Our Vision</h2>
               <p className="text-xl text-gray-600 leading-relaxed font-medium italic border-l-4 border-secondary pl-6">
                 "To provide quality and affordable education in Medical Sciences for every student irrespective of financial background."
               </p>
@@ -49,7 +49,7 @@ const VisionMission = () => {
               <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mb-6">
                 <Target size={32} className="text-primary" />
               </div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Mission</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Our Mission</h2>
               <ul className="space-y-4">
                 {missions.map((mission, index) => (
                   <li key={index} className="flex items-start">

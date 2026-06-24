@@ -88,7 +88,7 @@ const Strategy = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-5xl font-[800] text-[#0B1C40] leading-tight mb-3 md:mb-6">
+            <h2 className="text-2xl md:text-4xl font-[800] text-[#0B1C40] leading-tight mb-3 md:mb-6">
               Sri Angalamman <br /> Paramedical Institute
             </h2>
             <div className="flex items-center gap-2 mb-4 md:mb-6">

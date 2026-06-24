@@ -84,7 +84,7 @@ const HowToApply = () => {
             <div className="h-[2px] w-8 md:w-12 bg-[#F23B4E] rounded-full"></div>
           </div>
           
-          <h2 className="text-2xl md:text-4xl lg:text-[42px] font-[800] text-[#0B1C40] leading-tight">
+          <h2 className="text-xl md:text-3xl lg:text-4xl font-[800] text-[#0B1C40] leading-tight">
             How To Apply At Sri Angalamman
           </h2>
         </div>

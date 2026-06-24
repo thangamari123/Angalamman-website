@@ -44,7 +44,7 @@ const UniversityLifePage = () => {
     <main className="bg-white min-h-screen">
 
       {/* ── PAGE BANNER ── */}
-      <div className="relative h-[260px] sm:h-[340px] md:h-[420px] overflow-hidden">
+      <div className="relative h-[160px] sm:h-[340px] md:h-[420px] overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&q=80&w=1600"
           alt="University Life"

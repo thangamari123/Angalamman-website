@@ -64,7 +64,7 @@ const AboutPage = () => {
     <main className="bg-white min-h-screen">
 
       {/* ── PAGE BANNER ── */}
-      <div className="relative h-[260px] sm:h-[340px] md:h-[400px] overflow-hidden">
+      <div className="relative h-[160px] sm:h-[340px] md:h-[400px] overflow-hidden">
         <style dangerouslySetInnerHTML={{__html: `
           .about-banner-slider, .about-banner-slider .slick-list,
           .about-banner-slider .slick-track,

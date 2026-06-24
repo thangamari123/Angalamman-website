@@ -8,10 +8,12 @@
 }
 
 @layer base {
-  body {
+  html, body {
     background-color: theme('color.white');
     color: theme('color.gray.800');
     font-family: theme('font.sans');
+    overflow-x: hidden;
+    width: 100%;
   }
 
 .testimonial-slider-container .slick-dots li button:before {

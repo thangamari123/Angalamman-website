@@ -25,7 +25,7 @@ function App() {
       <div className="min-h-screen font-sans bg-white overflow-x-hidden flex flex-col">
         <Navbar />
         
-        <div className="flex-grow pb-[60px] md:pb-0">
+        <div className="flex-grow pb-[48px] md:pb-0">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutPage />} />

@@ -100,7 +100,7 @@ const LatestNews = () => {
             <div className="h-[1px] w-10 md:w-16 bg-[#F23B4E]"></div>
           </div>
           
-          <h2 className="text-3xl md:text-5xl font-[900] text-[#0B1C40] mb-5 tracking-tight">
+          <h2 className="text-2xl md:text-4xl font-[900] text-[#0B1C40] mb-5 tracking-tight">
             See Our Latest News
           </h2>
           

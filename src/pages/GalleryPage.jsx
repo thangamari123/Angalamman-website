@@ -12,7 +12,7 @@ const GalleryPage = () => {
   return (
     <main className="bg-white min-h-screen">
       {/* ── PAGE BANNER ── */}
-      <div className="relative h-[260px] sm:h-[340px] md:h-[400px] overflow-hidden">
+      <div className="relative h-[160px] sm:h-[340px] md:h-[400px] overflow-hidden">
         <div className="w-full h-full bg-[#0B1C40]">
           <img 
             src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&q=80&w=1600" 

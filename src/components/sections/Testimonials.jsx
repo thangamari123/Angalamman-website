@@ -99,7 +99,7 @@ const Testimonials = () => {
             <Star size={16} fill="#F23B4E" className="text-[#F23B4E]" />
             <div className="h-[2px] w-8 md:w-12 bg-[#F23B4E]" />
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-[38px] font-[900] text-[#0B1C40] tracking-tight leading-tight mb-3">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-[900] text-[#0B1C40] tracking-tight leading-tight mb-3">
             Student Testimonials
           </h2>
           <p className="text-[#4F5B73] text-[14px] sm:text-[15px] md:text-[16px] font-medium max-w-xl mx-auto">

@@ -37,7 +37,7 @@ const FAQPage = () => {
     <main className="bg-white min-h-screen">
 
       {/* ── PAGE BANNER ── */}
-      <div className="relative h-[260px] sm:h-[340px] md:h-[420px] overflow-hidden">
+      <div className="relative h-[160px] sm:h-[340px] md:h-[420px] overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=1600"
           alt="Support & Guidance"

@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Courses = () => {
   const courses = [
@@ -52,7 +53,7 @@ const Courses = () => {
             <span className="text-[#F23B4E] font-bold tracking-widest text-[13px] md:text-[15px] uppercase">Courses We Offer</span>
             <div className="h-[2px] w-10 md:w-16 bg-[#F23B4E]"></div>
           </div>
-          <h2 className="text-2xl md:text-4xl lg:text-[42px] font-[800] text-[#0B1C40] leading-[1.2]">
+          <h2 className="text-xl md:text-3xl lg:text-4xl font-[800] text-[#0B1C40] leading-[1.2]">
             Courses We Offer
           </h2>
           <div className="flex justify-center mt-5 md:mt-6">
@@ -65,7 +66,7 @@ const Courses = () => {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 lg:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 lg:gap-8 mx-auto">
           {courses.map((course, index) => (
             <motion.div 
               key={course.id}
@@ -103,6 +104,17 @@ const Courses = () => {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* View All Button */}
+        <div className="mt-10 md:mt-12 flex justify-center">
+          <Link 
+            to="/courses"
+            className="bg-[#0B1C40] hover:bg-[#F23B4E] text-white px-8 py-3.5 rounded-xl font-bold text-[15px] md:text-[16px] transition-colors duration-300 flex items-center gap-2 shadow-[0_8px_20px_rgba(11,28,64,0.2)] hover:shadow-[0_12px_25px_rgba(242,59,78,0.3)]"
+          >
+            View All Courses
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </Link>
         </div>
       </div>
     </section>

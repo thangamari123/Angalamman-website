@@ -106,7 +106,7 @@ const CoursesPage = () => {
   return (
     <main className="bg-white min-h-screen">
       {/* ── BANNER ── */}
-      <div className="relative h-[240px] sm:h-[320px] md:h-[400px] overflow-hidden">
+      <div className="relative h-[160px] sm:h-[320px] md:h-[400px] overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=2000"
           alt="Medical Education Banner"
@@ -144,7 +144,7 @@ const CoursesPage = () => {
       {/* ── COURSES GRID ── */}
       <section className="py-8 md:py-14 bg-white">
         <div className="container mx-auto px-3 sm:px-4 md:px-8 max-w-[1300px]">
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-8 mx-auto">
             {courses.map((course, index) => (
               <motion.div
                 key={course.id}

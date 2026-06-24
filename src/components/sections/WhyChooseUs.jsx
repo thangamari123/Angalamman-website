@@ -36,7 +36,7 @@ const WhyChooseUs = () => {
             <span className="text-[#F23B4E] font-bold tracking-widest text-[11px] md:text-[13px] uppercase">Why Choose Us</span>
             <div className="h-[2px] w-8 md:w-10 bg-[#F23B4E]"></div>
           </div>
-          <h2 className="text-3xl md:text-[36px] font-[800] text-[#0B1C40] leading-[1.2]">
+          <h2 className="text-2xl md:text-3xl font-[800] text-[#0B1C40] leading-[1.2]">
             Why Choose Us
           </h2>
         </div>

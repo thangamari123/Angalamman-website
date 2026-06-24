@@ -159,7 +159,7 @@ const About = () => {
                 <span className="text-[#F23B4E] font-bold tracking-widest text-[13px] uppercase bg-[#FFF5F6] px-3 py-1.5 rounded-full">About Us</span>
               </div>
 
-              <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-[900] text-[#0B1C40] leading-[1.15] mb-5 tracking-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-[900] text-[#0B1C40] leading-[1.15] mb-5 tracking-tight">
                 Sri Angalamman <br />
                 <span className="text-[#F23B4E]">Paramedical Institute</span>
               </h2>
