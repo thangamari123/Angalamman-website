@@ -57,7 +57,7 @@ const Navbar = () => {
         <div className="max-w-[1920px] mx-auto flex flex-col xl:flex-row justify-between items-center gap-1.5 md:gap-2">
           
           {/* Left Side: Static Info & Login */}
-          <div className="flex flex-wrap justify-center xl:justify-start items-center gap-x-2.5 gap-y-1 w-full xl:w-auto font-medium tracking-wide shrink-0">
+          <div className="hidden md:flex flex-wrap justify-center xl:justify-start items-center gap-x-2.5 gap-y-1 w-full xl:w-auto font-medium tracking-wide shrink-0">
             <div className="flex items-center gap-2.5">
               <a href="tel:+919751920888" className="flex items-center gap-1 hover:text-[#F23B4E] transition-colors">
                 <Phone size={12} />
@@ -79,13 +79,9 @@ const Navbar = () => {
           {/* Right Side: Scrolling Ticker */}
           <div className="w-full xl:w-[45%] overflow-hidden relative flex items-center xl:border-l border-gray-600/50 pl-0 xl:pl-4 pt-1 xl:pt-0">
             <div className="animate-marquee font-semibold tracking-wide flex items-center cursor-default whitespace-nowrap text-[11px] md:text-xs">
-              <span className="text-[#F23B4E] mx-3">★</span> 
-              Admissions Started for the Year 2025 - 2026. 
-              <span className="mx-4 text-gray-500">|</span> 
-              For Further Details Contact: Mobile No : +91 97519 20888 , +91 77081 23707 
-              <span className="mx-4 text-gray-500">|</span> 
-              College Landline No : 04342291882 
-              <span className="text-[#F23B4E] mx-3">★</span>
+              <span className="mx-3">🎓</span> Admissions Started for Academic Year 2026–2027 <span className="mx-3 text-[#F23B4E]">|</span> Apply Now <span className="mx-3 text-[#F23B4E]">|</span> 📞 Admission Helpline: +91 97519 20888, +91 77081 23707 <span className="mx-3 text-[#F23B4E]">|</span>
+              <span className="mx-3">🎓</span> Admissions Started for Academic Year 2026–2027 <span className="mx-3 text-[#F23B4E]">|</span> Apply Now <span className="mx-3 text-[#F23B4E]">|</span> 📞 Admission Helpline: +91 97519 20888, +91 77081 23707 <span className="mx-3 text-[#F23B4E]">|</span>
+              <span className="mx-3">🎓</span> Admissions Started for Academic Year 2026–2027 <span className="mx-3 text-[#F23B4E]">|</span> Apply Now <span className="mx-3 text-[#F23B4E]">|</span> 📞 Admission Helpline: +91 97519 20888, +91 77081 23707
             </div>
           </div>
 
