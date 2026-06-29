@@ -2,6 +2,7 @@ import React from 'react';
 import ReactSlider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { User } from 'lucide-react';
 
 const Slider = ReactSlider.default || ReactSlider;
 
@@ -97,34 +98,34 @@ const Testimonials = () => {
         </div>
 
         {/* Slider */}
-        <div className="testi-wrap pb-16 max-w-[1200px] mx-auto">
+        <div className="testi-wrap pb-12 md:pb-16 max-w-[1200px] mx-auto">
           <Slider {...settings}>
             {reviews.map((review) => (
               <div key={review.id}>
-                <div className="bg-white rounded-none p-6 sm:p-8 pt-12 shadow-[0_4px_20px_rgba(0,0,0,0.06)] border border-gray-100 flex flex-col h-full relative transition-all duration-300">
+                <div className="bg-white rounded-none p-4 md:p-8 pt-10 md:pt-12 shadow-[0_4px_20px_rgba(0,0,0,0.06)] border border-gray-100 flex flex-col h-full relative transition-all duration-300">
                   
                   {/* Floating Avatar */}
-                  <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-[56px] h-[56px] rounded-full overflow-hidden border-[4px] border-white shadow-md z-10">
-                    <img src={review.image} alt={review.name} className="w-full h-full object-cover" />
+                  <div className="absolute -top-6 md:-top-7 left-1/2 -translate-x-1/2 w-[48px] h-[48px] md:w-[56px] md:h-[56px] rounded-full overflow-hidden border-[3px] md:border-[4px] border-white shadow-md z-10 bg-gray-100 flex items-center justify-center">
+                    <User className="text-gray-400 w-5 h-5 md:w-7 md:h-7" strokeWidth={2.5} />
                   </div>
 
                   <div className="relative flex-1 flex flex-col text-center">
                     {/* Top Left Quote */}
-                    <span className="absolute -top-4 -left-2 text-[60px] text-gray-200 font-serif leading-none select-none">“</span>
+                    <span className="absolute -top-3 md:-top-4 -left-1 md:-left-2 text-[40px] md:text-[60px] text-gray-200 font-serif leading-none select-none">“</span>
                     
                     {/* Vertical Borders and Text */}
-                    <div className="border-l-[1.5px] border-r-[1.5px] border-black/80 px-4 py-2 flex-1 flex flex-col justify-center min-h-[180px] mx-4 z-10">
-                      <p className="text-[#4F5B73] text-[13px] md:text-[14px] leading-relaxed whitespace-pre-wrap">
+                    <div className="border-l-[1.5px] border-r-[1.5px] border-black/80 px-3 md:px-4 py-2 flex-1 flex flex-col justify-center min-h-[140px] md:min-h-[180px] mx-3 md:mx-4 z-10">
+                      <p className="text-[#4F5B73] text-[12px] md:text-[14px] leading-relaxed whitespace-pre-wrap">
                         {review.text}
                       </p>
                     </div>
 
                     {/* Bottom Right Quote */}
-                    <span className="absolute bottom-6 -right-2 text-[60px] text-gray-200 font-serif leading-none select-none">”</span>
+                    <span className="absolute bottom-4 md:bottom-6 -right-1 md:-right-2 text-[40px] md:text-[60px] text-gray-200 font-serif leading-none select-none">”</span>
 
-                    <div className="mt-8">
-                      <p className="text-[#0B1C40] text-[12px] font-bold tracking-widest uppercase flex items-center justify-center gap-2">
-                        <span className="w-4 h-[1.5px] bg-black"></span> {review.name}
+                    <div className="mt-6 md:mt-8">
+                      <p className="text-[#0B1C40] text-[10px] md:text-[12px] font-bold tracking-widest uppercase flex items-center justify-center gap-2">
+                        <span className="w-3 md:w-4 h-[1.5px] bg-black"></span> {review.name}
                       </p>
                     </div>
                   </div>

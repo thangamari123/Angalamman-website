@@ -81,11 +81,11 @@ const Navbar = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.6 }}
-                className="font-bold tracking-wide text-center text-white text-[13px] sm:text-[14px] md:text-[15px]"
+                className="font-bold tracking-wide text-center text-white text-[11px] sm:text-[13px] md:text-[15px]"
               >
-                <span className="text-[#F23B4E] mr-2 text-[16px] sm:text-[18px]">✦</span>
+                <span className="text-[#F23B4E] mr-1.5 md:mr-2 text-[13px] sm:text-[15px] md:text-[18px]">✦</span>
                 {announcementMessages[announcementIndex]}
-                <span className="text-[#F23B4E] ml-2 text-[16px] sm:text-[18px]">✦</span>
+                <span className="text-[#F23B4E] ml-1.5 md:ml-2 text-[13px] sm:text-[15px] md:text-[18px]">✦</span>
               </motion.div>
             </AnimatePresence>
           </div>

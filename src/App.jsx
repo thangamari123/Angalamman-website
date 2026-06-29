@@ -5,6 +5,7 @@ import Footer from './components/layout/Footer';
 import FloatingSocials from './components/layout/FloatingSocials';
 import MobileStickyBar from './components/layout/MobileStickyBar';
 import AdmissionPopup from './components/layout/AdmissionPopup';
+import Preloader from './components/layout/Preloader';
 
 import Home from './pages/Home';
 import Courses from './pages/Courses';
@@ -27,6 +28,7 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen font-sans bg-white overflow-x-hidden flex flex-col">
+        <Preloader />
         <Navbar />
         
         <div className="flex-grow pb-[48px] md:pb-0">
