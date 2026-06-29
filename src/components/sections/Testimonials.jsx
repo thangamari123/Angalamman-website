@@ -80,9 +80,9 @@ const Testimonials = () => {
         }
         .testi-wrap .slick-track { display: flex !important; align-items: stretch; }
         .testi-wrap .slick-slide { height: auto !important; display: flex !important; flex-shrink: 0; }
-        .testi-wrap .slick-slide > div { width: 100%; display: flex; flex: 1; padding: 0 10px; margin-top: 30px; }
+        .testi-wrap .slick-slide > div { width: 100%; display: flex; flex: 1; padding: 0 8px; margin-top: 10px; }
         @media (min-width: 768px) {
-          .testi-wrap .slick-slide > div { padding: 0 12px; }
+          .testi-wrap .slick-slide > div { padding: 0 12px; margin-top: 30px; }
         }
       `}} />
 
@@ -102,30 +102,43 @@ const Testimonials = () => {
           <Slider {...settings}>
             {reviews.map((review) => (
               <div key={review.id}>
-                <div className="bg-white rounded-none p-4 md:p-8 pt-10 md:pt-12 shadow-[0_4px_20px_rgba(0,0,0,0.06)] border border-gray-100 flex flex-col h-full relative transition-all duration-300">
+                <div className="bg-white rounded-2xl md:rounded-none p-5 md:p-8 md:pt-12 shadow-lg md:shadow-[0_4px_20px_rgba(0,0,0,0.06)] border border-gray-100 md:border-gray-100 flex flex-col h-full relative transition-all duration-300">
                   
-                  {/* Floating Avatar */}
-                  <div className="absolute -top-6 md:-top-7 left-1/2 -translate-x-1/2 w-[48px] h-[48px] md:w-[56px] md:h-[56px] rounded-full overflow-hidden border-[3px] md:border-[4px] border-white shadow-md z-10 bg-gray-100 flex items-center justify-center">
-                    <User className="text-gray-400 w-5 h-5 md:w-7 md:h-7" strokeWidth={2.5} />
+                  {/* Avatar - Mobile: Top Left w/ Name, Desktop: Floating Top Center */}
+                  <div className="flex md:hidden items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-gray-100 flex-shrink-0 bg-gray-50 flex items-center justify-center">
+                      <User className="text-gray-400 w-5 h-5" strokeWidth={2.5} />
+                    </div>
+                    <div>
+                      <h4 className="text-[#0B1C40] text-sm font-bold tracking-wide uppercase">{review.name}</h4>
+                    </div>
                   </div>
 
-                  <div className="relative flex-1 flex flex-col text-center">
-                    {/* Top Left Quote */}
-                    <span className="absolute -top-3 md:-top-4 -left-1 md:-left-2 text-[40px] md:text-[60px] text-gray-200 font-serif leading-none select-none">“</span>
+                  {/* Desktop Floating Avatar */}
+                  <div className="hidden md:flex absolute -top-7 left-1/2 -translate-x-1/2 w-[56px] h-[56px] rounded-full overflow-hidden border-[4px] border-white shadow-md z-10 bg-gray-100 items-center justify-center">
+                    <User className="text-gray-400 w-7 h-7" strokeWidth={2.5} />
+                  </div>
+
+                  <div className="relative flex-1 flex flex-col text-left md:text-center">
+                    {/* Top Left Quote - Desktop only */}
+                    <span className="hidden md:block absolute -top-4 -left-2 text-[60px] text-gray-200 font-serif leading-none select-none">“</span>
                     
-                    {/* Vertical Borders and Text */}
-                    <div className="border-l-[1.5px] border-r-[1.5px] border-black/80 px-3 md:px-4 py-2 flex-1 flex flex-col justify-center min-h-[140px] md:min-h-[180px] mx-3 md:mx-4 z-10">
-                      <p className="text-[#4F5B73] text-[12px] md:text-[14px] leading-relaxed whitespace-pre-wrap">
+                    {/* Mobile: Simple text, Desktop: Vertical Borders */}
+                    <div className="md:border-l-[1.5px] md:border-r-[1.5px] border-black/80 md:px-4 py-1 md:py-2 flex-1 flex flex-col justify-start md:justify-center min-h-0 md:min-h-[180px] md:mx-4 z-10">
+                      {/* Mobile quote icon small */}
+                      <span className="md:hidden text-3xl text-blue-900/10 font-serif leading-none mb-1 select-none">“</span>
+                      <p className="text-[#4F5B73] text-[13px] md:text-[14px] leading-relaxed whitespace-pre-wrap italic md:not-italic">
                         {review.text}
                       </p>
                     </div>
 
-                    {/* Bottom Right Quote */}
-                    <span className="absolute bottom-4 md:bottom-6 -right-1 md:-right-2 text-[40px] md:text-[60px] text-gray-200 font-serif leading-none select-none">”</span>
+                    {/* Bottom Right Quote - Desktop only */}
+                    <span className="hidden md:block absolute bottom-6 -right-2 text-[60px] text-gray-200 font-serif leading-none select-none">”</span>
 
-                    <div className="mt-6 md:mt-8">
-                      <p className="text-[#0B1C40] text-[10px] md:text-[12px] font-bold tracking-widest uppercase flex items-center justify-center gap-2">
-                        <span className="w-3 md:w-4 h-[1.5px] bg-black"></span> {review.name}
+                    {/* Name - Desktop only */}
+                    <div className="hidden md:flex mt-8 items-center justify-center">
+                      <p className="text-[#0B1C40] text-[12px] font-bold tracking-widest uppercase flex items-center gap-2">
+                        <span className="w-4 h-[1.5px] bg-black"></span> {review.name}
                       </p>
                     </div>
                   </div>
