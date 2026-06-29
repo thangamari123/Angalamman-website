@@ -79,7 +79,7 @@ const Testimonials = () => {
           color: #0B1C40; opacity: 1; font-size: 12px;
         }
         .testi-wrap .slick-track { display: flex !important; align-items: stretch; }
-        .testi-wrap .slick-slide { height: auto !important; display: flex !important; }
+        .testi-wrap .slick-slide { height: auto !important; display: flex !important; flex-shrink: 0; }
         .testi-wrap .slick-slide > div { width: 100%; display: flex; flex: 1; padding: 0 10px; margin-top: 30px; }
         @media (min-width: 768px) {
           .testi-wrap .slick-slide > div { padding: 0 12px; }
