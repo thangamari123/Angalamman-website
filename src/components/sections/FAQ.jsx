@@ -29,7 +29,7 @@ const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-10 md:py-16 bg-gray-50">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
           <div className="w-full lg:w-1/3">

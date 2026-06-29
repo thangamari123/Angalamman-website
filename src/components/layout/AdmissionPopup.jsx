@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, GraduationCap, PhoneCall, Sparkles } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { X } from 'lucide-react';
 
 const AdmissionPopup = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const images = [
+    '/images/popup1 (1).webp',
+    '/images/popup1 (2).webp'
+  ];
 
   useEffect(() => {
     // Show the popup a short delay after the website loads
@@ -22,6 +27,16 @@ const AdmissionPopup = () => {
     document.body.style.overflow = 'unset';
   };
 
+  useEffect(() => {
+    let slideTimer;
+    if (isVisible) {
+      slideTimer = setInterval(() => {
+        setCurrentIndex((prev) => (prev + 1) % images.length);
+      }, 3500); // Slide every 3.5 seconds
+    }
+    return () => clearInterval(slideTimer);
+  }, [isVisible, images.length]);
+
   return (
     <AnimatePresence>
       {isVisible && (
@@ -32,7 +47,7 @@ const AdmissionPopup = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={closePopup}
-            className="absolute inset-0 bg-[#05112B]/90 backdrop-blur-md"
+            className="absolute inset-0 bg-black/75 backdrop-blur-sm"
           />
 
           {/* Popup Container */}
@@ -41,76 +56,45 @@ const AdmissionPopup = () => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 30 }}
             transition={{ type: 'spring', damping: 28, stiffness: 300 }}
-            className="relative w-full max-w-[850px] bg-white rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col md:flex-row border border-white/20"
+            className="relative w-full max-w-[550px] aspect-[4/5] sm:aspect-square bg-transparent rounded-2xl shadow-2xl overflow-hidden flex items-center justify-center"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button - Floats over everything */}
             <button
               onClick={closePopup}
-              className="absolute top-3 right-3 md:top-4 md:right-4 z-20 w-9 h-9 bg-white/90 backdrop-blur shadow-sm hover:bg-gray-100 text-gray-800 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-105"
+              className="absolute top-2 right-2 md:top-4 md:right-4 z-30 w-9 h-9 bg-black/40 hover:bg-black/70 backdrop-blur-md shadow-sm text-white rounded-full flex items-center justify-center transition-all duration-300"
             >
-              <X size={18} strokeWidth={2.5} />
+              <X size={20} strokeWidth={2.5} />
             </button>
 
-            {/* Left Side: Premium Image Layout (Desktop) */}
-            <div className="hidden md:block md:w-[45%] relative bg-gray-100">
-              <img
-                src="/images/hero-imge4.webp"
-                alt="Admissions Open"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
+            {/* Auto-sliding Images */}
+            <div className="relative w-full h-full bg-white rounded-2xl overflow-hidden">
+              <AnimatePresence initial={false}>
+                <motion.img
+                  key={currentIndex}
+                  src={images[currentIndex]}
+                  alt={`Admission Update ${currentIndex + 1}`}
+                  initial={{ opacity: 0, x: 100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -100 }}
+                  transition={{ duration: 0.6, ease: 'easeInOut' }}
+                  className="absolute inset-0 w-full h-full object-contain"
+                />
+              </AnimatePresence>
             </div>
 
-            {/* Right Side: Content & Actions */}
-            <div className="w-full md:w-[55%] flex flex-col justify-center bg-white relative">
-              
-              {/* Mobile Header Image (Only on Mobile) */}
-              <div className="md:hidden w-full h-[200px] sm:h-[240px] relative overflow-hidden bg-gray-100">
-                <img
-                  src="/images/hero-imge4.webp"
-                  alt="Admissions Open"
-                  className="absolute inset-0 w-full h-full object-cover"
+            {/* Pagination Dots */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20 bg-black/30 px-3 py-1.5 rounded-full backdrop-blur-sm">
+              {images.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentIndex(idx)}
+                  className={`h-2 rounded-full transition-all duration-300 shadow-sm ${
+                    idx === currentIndex ? 'w-6 bg-[#F23B4E]' : 'w-2 bg-white/70 hover:bg-white'
+                  }`}
+                  aria-label={`Go to slide ${idx + 1}`}
                 />
-              </div>
-
-              {/* Text Content */}
-              <div className="p-6 sm:p-8 md:p-10">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#F23B4E]/10 text-[#F23B4E] rounded-md text-sm font-bold w-fit mb-3">
-                  <span className="relative flex h-2.5 w-2.5">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F23B4E] opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#F23B4E] ml-[1px] mt-[1px]"></span>
-                  </span>
-                  Session 2025-2026
-                </div>
-
-                <h2 className="text-[24px] sm:text-[28px] font-[900] text-[#0B1C40] leading-[1.1] mb-2">
-                  Begin Your Journey
-                </h2>
-                
-                <p className="text-gray-600 text-[14px] sm:text-[15px] leading-[1.5] mb-6 font-medium">
-                  Secure your seat for our premium paramedical diploma courses today.
-                </p>
-
-                {/* Buttons Grid */}
-                <div className="flex flex-col gap-3">
-                  <Link
-                    to="/application"
-                    onClick={closePopup}
-                    className="w-full bg-gradient-to-r from-[#F23B4E] to-[#D92B3E] hover:from-[#D92B3E] hover:to-[#B81E2E] text-white px-6 py-3.5 sm:py-4 rounded-xl font-bold text-[15px] sm:text-[16px] transition-all duration-300 shadow-[0_8px_20px_rgba(242,59,78,0.25)] hover:shadow-[0_12px_25px_rgba(242,59,78,0.35)] flex items-center justify-center group"
-                  >
-                    <GraduationCap className="mr-2.5" size={20} />
-                    Fill Application Form
-                  </Link>
-                  
-                  <a
-                    href="tel:+919751920888"
-                    className="w-full bg-white hover:bg-gray-50 text-[#0B1C40] border-2 border-[#0B1C40]/10 hover:border-[#0B1C40]/30 px-6 py-3.5 sm:py-4 rounded-xl font-bold text-[15px] sm:text-[16px] transition-all duration-300 flex items-center justify-center group"
-                  >
-                    <PhoneCall className="mr-2.5 text-[#F23B4E] group-hover:scale-110 transition-transform" size={18} />
-                    Call Admission Desk
-                  </a>
-                </div>
-              </div>
+              ))}
             </div>
           </motion.div>
         </div>

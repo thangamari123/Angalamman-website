@@ -28,7 +28,7 @@ const StrategySlider = () => {
   }, []);
 
   return (
-    <div className="relative w-full h-full rounded-xl md:rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
+    <div className="relative w-full h-full rounded-none overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
       {classroomImages.map((src, i) => (
         <img
           key={i}
@@ -69,7 +69,7 @@ const StrategySlider = () => {
 
 const Strategy = () => {
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-10 md:py-16 bg-[#F8F9FA]">
       <div className="container mx-auto px-3 md:px-8 max-w-[1300px]">
         {/* Section Header */}
         <div className="text-center mb-6 md:mb-16">
@@ -125,12 +125,12 @@ const Strategy = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
-            className="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 p-8 flex flex-col hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(242,59,78,0.08)] transition-all duration-300 group overflow-hidden relative"
+            className="bg-white rounded-none shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-gray-100 p-8 flex flex-col hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-300 group overflow-hidden relative"
           >
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#F23B4E] to-[#ff7e8b] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
             
-            <div className="w-[70px] h-[70px] bg-gray-50 group-hover:bg-[#FFF5F6] rounded-2xl flex items-center justify-center mb-6 transition-colors duration-300 shrink-0">
-              <GraduationCap className="text-[#0B1C40] group-hover:text-[#F23B4E] w-[36px] h-[36px] transition-colors duration-300" />
+            <div className="w-[70px] h-[70px] bg-[#FFF0F2] group-hover:bg-[#F23B4E] rounded-none flex items-center justify-center mb-6 transition-colors duration-300 shrink-0">
+              <GraduationCap className="text-[#F23B4E] group-hover:text-white w-[36px] h-[36px] transition-colors duration-300" />
             </div>
             
             <h3 className="text-2xl font-[800] text-[#0B1C40] mb-4">Excellence</h3>
@@ -150,12 +150,12 @@ const Strategy = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 p-8 flex flex-col hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(242,59,78,0.08)] transition-all duration-300 group overflow-hidden relative"
+            className="bg-white rounded-none shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-gray-100 p-8 flex flex-col hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-300 group overflow-hidden relative"
           >
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#F23B4E] to-[#ff7e8b] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
             
-            <div className="w-[70px] h-[70px] bg-gray-50 group-hover:bg-[#FFF5F6] rounded-2xl flex items-center justify-center mb-6 transition-colors duration-300 shrink-0">
-              <Users className="text-[#0B1C40] group-hover:text-[#F23B4E] w-[36px] h-[36px] transition-colors duration-300" />
+            <div className="w-[70px] h-[70px] bg-[#FFF0F2] group-hover:bg-[#F23B4E] rounded-none flex items-center justify-center mb-6 transition-colors duration-300 shrink-0">
+              <Users className="text-[#F23B4E] group-hover:text-white w-[36px] h-[36px] transition-colors duration-300" />
             </div>
             
             <h3 className="text-2xl font-[800] text-[#0B1C40] mb-4">Unity in Diversity</h3>
@@ -175,12 +175,12 @@ const Strategy = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 p-8 flex flex-col hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(242,59,78,0.08)] transition-all duration-300 group overflow-hidden relative"
+            className="bg-white rounded-none shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-gray-100 p-8 flex flex-col hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-300 group overflow-hidden relative"
           >
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#F23B4E] to-[#ff7e8b] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
             
-            <div className="w-[70px] h-[70px] bg-gray-50 group-hover:bg-[#FFF5F6] rounded-2xl flex items-center justify-center mb-6 transition-colors duration-300 shrink-0">
-              <Scale className="text-[#0B1C40] group-hover:text-[#F23B4E] w-[36px] h-[36px] transition-colors duration-300" />
+            <div className="w-[70px] h-[70px] bg-[#FFF0F2] group-hover:bg-[#F23B4E] rounded-none flex items-center justify-center mb-6 transition-colors duration-300 shrink-0">
+              <Scale className="text-[#F23B4E] group-hover:text-white w-[36px] h-[36px] transition-colors duration-300" />
             </div>
             
             <h3 className="text-2xl font-[800] text-[#0B1C40] mb-4">Social Responsibility</h3>

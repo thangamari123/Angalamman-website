@@ -93,10 +93,10 @@ const Gallery = () => {
 
         {/* Header */}
         <div className="text-center mb-6 md:mb-10">
-          <div className="flex items-center justify-center gap-3 mb-3">
-            <div className="h-[2px] w-8 md:w-14 bg-[#F23B4E] rounded-full"></div>
+          <div className="flex items-center justify-center gap-3 md:gap-4 mb-2 md:mb-3">
+            <div className="h-[1px] w-10 md:w-16 bg-[#F23B4E]"></div>
             <span className="text-[#F23B4E] font-bold tracking-widest text-[12px] md:text-[14px] uppercase">Our Moments</span>
-            <div className="h-[2px] w-8 md:w-14 bg-[#F23B4E] rounded-full"></div>
+            <div className="h-[1px] w-10 md:w-16 bg-[#F23B4E]"></div>
           </div>
           <h2 className="text-xl md:text-3xl font-[900] text-[#0B1C40] mb-2">Photo Gallery</h2>
           <p className="text-[#4F5B73] text-[13px] md:text-[16px] max-w-xl mx-auto">

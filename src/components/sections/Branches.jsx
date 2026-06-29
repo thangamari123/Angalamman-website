@@ -11,14 +11,16 @@ const Branches = () => {
       img: "/images/dharmapuri-branch.webp",
       address: "Nanjundeswara towers, Pennagaram main road,\nNear DNV International School, DNV Nagar,\nDharmapuri",
       pin: "636701 .",
-      phones: "+91 97519 20888  |  +91 77081 23707"
+      phones: "+91 97519 20888  |  +91 77081 23707",
+      mapLink: "https://www.google.com/maps/place/Sri+Angalamman+Paramedical+Institute/@12.137648,78.148759,2683m/data=!3m1!1e3!4m6!3m5!1s0x3bac17ba4f548749:0x6c5dbf03f43293cd!8m2!3d12.137637!4d78.148838!16s%2Fg%2F11w3bv4wqv?hl=en&entry=ttu&g_ep=EgoyMDI2MDYyNC4wIKXMDSoASAFQAw%3D%3D"
     },
     {
       title: "TIRUVANNAMALAI BRANCH",
       img: "/images/tvm-branch.webp",
       address: "Vellore Main Road, Puthumallavadi,\nTiruvannamalai",
       pin: "606 805.",
-      phones: "+91 86086 09555  |  +91 96296 60026"
+      phones: "+91 86086 09555  |  +91 96296 60026",
+      mapLink: "https://www.google.com/maps?q=12.326180458068848,79.07335662841797&z=17&hl=en"
     }
   ];
 
@@ -32,9 +34,9 @@ const Branches = () => {
 
   const renderCard = (branch, index) => (
     <div key={index} className="h-full">
-      <div className="bg-white rounded-3xl shadow-[0_15px_40px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)] transition-shadow duration-300 overflow-visible relative pb-6 md:pb-10 border border-gray-100 flex flex-col h-full mx-1">
+      <div className="bg-white shadow-[0_15px_40px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)] transition-shadow duration-300 overflow-visible relative pb-6 md:pb-10 border border-gray-100 flex flex-col h-full mx-1">
         {/* Image */}
-        <div className="w-full aspect-video rounded-t-3xl overflow-hidden relative bg-gray-100">
+        <div className="w-full aspect-video overflow-hidden relative bg-gray-100">
           <div className="absolute inset-0 bg-black/5 z-10 mix-blend-overlay"></div>
           <img 
             src={branch.img} 
@@ -44,52 +46,57 @@ const Branches = () => {
         </div>
 
         {/* Overlapping Icon */}
-        <div className="w-[70px] h-[70px] md:w-[88px] md:h-[88px] bg-[#0B1C40] rounded-full flex items-center justify-center border-[4px] md:border-[5px] border-white shadow-md z-20 mx-auto -mt-[35px] md:-mt-[44px] relative">
-          <MapPin size={28} className="text-white md:w-[40px] md:h-[40px]" strokeWidth={2} />
+        <div className="w-[60px] h-[60px] md:w-[70px] md:h-[70px] bg-[#0B1C40] rounded-full flex items-center justify-center border-[4px] border-white shadow-md z-20 mx-auto -mt-[30px] md:-mt-[35px] relative">
+          <MapPin size={24} className="text-white md:w-[30px] md:h-[30px]" strokeWidth={2} />
         </div>
 
         {/* Content */}
-        <div className="pt-4 md:pt-6 px-5 md:px-10 flex flex-col items-center flex-grow">
-          <h3 className="text-[#0B1C40] text-[18px] md:text-[24px] font-[800] uppercase tracking-wide text-center">
+        <div className="pt-4 px-4 md:px-8 flex flex-col items-center flex-grow">
+          <h3 className="text-[#0B1C40] text-[16px] md:text-[20px] font-[800] uppercase tracking-wide text-center">
             {branch.title}
           </h3>
-          <div className="flex items-center justify-center gap-1.5 my-3 md:my-4">
+          <div className="flex items-center justify-center gap-1.5 my-2 md:my-3">
             <div className="h-[2px] w-6 md:w-8 bg-[#F23B4E]"></div>
             <div className="w-1.5 h-1.5 rounded-full bg-[#F23B4E]"></div>
             <div className="h-[2px] w-6 md:w-8 bg-[#F23B4E]"></div>
           </div>
           
           {/* Address */}
-          <div className="flex items-start gap-3 md:gap-4 text-[#4F5B73] mb-6 md:mb-8 w-full mt-1 md:mt-2">
-            <MapPin size={20} className="text-[#F23B4E] shrink-0 mt-1 md:w-[24px] md:h-[24px]" strokeWidth={2} />
-            <p className="whitespace-pre-line text-left leading-relaxed text-[13px] md:text-[16px] font-medium">
+          <div className="flex items-start gap-3 text-[#4F5B73] mb-5 w-full mt-1">
+            <MapPin size={18} className="text-[#F23B4E] shrink-0 mt-0.5 md:w-[20px] md:h-[20px]" strokeWidth={2} />
+            <p className="whitespace-pre-line text-left leading-relaxed text-[12px] md:text-[14px] font-medium">
               {branch.address}
             </p>
           </div>
 
           {/* Pills */}
-          <div className="w-full flex flex-col gap-2.5 md:gap-3.5 mt-auto">
-            <div className="w-full bg-[#F8F9FA] rounded-xl px-4 py-2.5 md:px-5 md:py-3.5 flex items-center gap-3 border border-gray-100/50">
-              <Mail size={18} className="text-[#F23B4E] shrink-0 md:w-[22px] md:h-[22px]" strokeWidth={2} />
-              <span className="text-[#0B1C40] font-[800] text-[13px] md:text-[16px]">PIN CODE - {branch.pin}</span>
+          <div className="w-full flex flex-col gap-2 md:gap-3 mt-auto">
+            <div className="w-full bg-[#F8F9FA] rounded-lg px-3 py-2 md:px-4 md:py-2.5 flex items-center gap-3 border border-gray-100/50">
+              <Mail size={16} className="text-[#F23B4E] shrink-0 md:w-[18px] md:h-[18px]" strokeWidth={2} />
+              <span className="text-[#0B1C40] font-[800] text-[12px] md:text-[14px]">PIN CODE - {branch.pin}</span>
             </div>
-            <div className="w-full bg-[#F8F9FA] rounded-xl px-4 py-2.5 md:px-5 md:py-3.5 flex items-center gap-3 border border-gray-100/50">
-              <Phone size={18} className="text-[#F23B4E] shrink-0 md:w-[22px] md:h-[22px]" strokeWidth={2} />
-              <span className="text-[#0B1C40] font-[800] text-[13px] md:text-[16px]">{branch.phones}</span>
+            <div className="w-full bg-[#F8F9FA] rounded-lg px-3 py-2 md:px-4 md:py-2.5 flex items-center gap-3 border border-gray-100/50">
+              <Phone size={16} className="text-[#F23B4E] shrink-0 md:w-[18px] md:h-[18px]" strokeWidth={2} />
+              <span className="text-[#0B1C40] font-[800] text-[12px] md:text-[14px]">{branch.phones}</span>
             </div>
           </div>
 
           {/* Button */}
-          <div className="w-full mt-5 md:mt-6">
-            <button className="w-full bg-[#0B1C40] text-white rounded-xl py-3 px-5 md:py-4 md:px-6 flex items-center justify-between hover:bg-[#F23B4E] transition-colors duration-300 group shadow-lg">
-              <div className="flex items-center gap-2.5 md:gap-3">
-                <Map size={20} className="md:w-[24px] md:h-[24px]" strokeWidth={2} />
-                <span className="font-[700] text-[15px] md:text-[18px] tracking-wide">Google Map</span>
+          <div className="w-full mt-4 md:mt-5">
+            <a 
+              href={branch.mapLink}
+              target="_blank"
+              rel="noreferrer"
+              className="w-full bg-[#0B1C40] text-white py-2.5 px-4 md:py-3 md:px-5 flex items-center justify-between hover:bg-[#F23B4E] transition-colors duration-300 group shadow-lg"
+            >
+              <div className="flex items-center gap-2">
+                <Map size={18} className="md:w-[20px] md:h-[20px]" strokeWidth={2} />
+                <span className="font-[700] text-[13px] md:text-[15px] tracking-wide">Google Map</span>
               </div>
-              <div className="w-7 h-7 md:w-9 md:h-9 bg-white rounded-full flex items-center justify-center text-[#0B1C40] group-hover:text-[#F23B4E] transition-colors">
-                <ArrowRight size={16} className="md:w-[20px] md:h-[20px]" strokeWidth={3} />
+              <div className="w-6 h-6 md:w-8 md:h-8 bg-white rounded-full flex items-center justify-center text-[#0B1C40] group-hover:text-[#F23B4E] transition-colors">
+                <ArrowRight size={14} className="md:w-[16px] md:h-[16px]" strokeWidth={3} />
               </div>
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -97,10 +104,10 @@ const Branches = () => {
   );
 
   return (
-    <section className="py-16 md:py-24 bg-white overflow-hidden">
-      <div className="container mx-auto px-4 max-w-6xl">
+    <section className="py-10 md:py-16 bg-[#0B1C40] overflow-hidden">
+      <div className="container mx-auto px-4 max-w-5xl">
         {/* Header */}
-        <div className="text-center mb-10 md:mb-24">
+        <div className="text-center mb-10 md:mb-16">
           <div className="flex items-center justify-center gap-4 mb-4">
             <div className="h-[2px] w-12 md:w-20 bg-[#F23B4E]"></div>
             <div className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-[#F23B4E] flex items-center justify-center bg-white shadow-sm">
@@ -108,7 +115,7 @@ const Branches = () => {
             </div>
             <div className="h-[2px] w-12 md:w-20 bg-[#F23B4E]"></div>
           </div>
-          <h2 className="text-2xl md:text-4xl font-[900] text-[#0B1C40] uppercase tracking-wide leading-none mb-4 md:mb-6">
+          <h2 className="text-2xl md:text-4xl font-[900] text-white uppercase tracking-wide leading-none mb-4 md:mb-6">
             OUR BRANCH
           </h2>
           <div className="flex items-center justify-center gap-1.5">
@@ -119,12 +126,12 @@ const Branches = () => {
         </div>
 
         {/* Desktop Grid (Hidden on Mobile) */}
-        <div className="hidden md:grid md:grid-cols-2 gap-16">
+        <div className="hidden md:grid md:grid-cols-2 gap-8 md:gap-12">
           {branchData.map((branch, index) => renderCard(branch, index))}
         </div>
 
         {/* Mobile Automatic Slider (Hidden on Desktop) */}
-        <div className="block md:hidden mt-6 relative max-w-[340px] mx-auto h-[550px]">
+        <div className="block md:hidden mt-6 relative max-w-[320px] mx-auto h-[480px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeIndex}
@@ -139,7 +146,7 @@ const Branches = () => {
           </AnimatePresence>
 
           {/* Dots Navigation */}
-          <div className="absolute -bottom-10 left-0 right-0 flex justify-center gap-2">
+          <div className="absolute -bottom-8 left-0 right-0 flex justify-center gap-2">
             {branchData.map((_, index) => (
               <button
                 key={index}

@@ -158,7 +158,7 @@ const ContactPage = () => {
       pin: '636701',
       phones: ['+91 97519 20888', '+91 77081 23707'],
       mapSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62640.01!2d78.1!3d12.12!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bac01e0b5555555%3A0x1234!2sDharmapuri!5e0!3m2!1sen!2sin!4v1234567890',
-      mapLink: 'https://maps.google.com/?q=Dharmapuri+636701',
+      mapLink: 'https://www.google.com/maps/place/Sri+Angalamman+Paramedical+Institute/@12.137648,78.148759,2683m/data=!3m1!1e3!4m6!3m5!1s0x3bac17ba4f548749:0x6c5dbf03f43293cd!8m2!3d12.137637!4d78.148838!16s%2Fg%2F11w3bv4wqv?hl=en&entry=ttu&g_ep=EgoyMDI2MDYyNC4wIKXMDSoASAFQAw%3D%3D',
     },
     {
       name: 'Tiruvannamalai Branch',
@@ -166,7 +166,7 @@ const ContactPage = () => {
       pin: '606 805',
       phones: ['+91 86086 09555', '+91 96296 60026'],
       mapSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125459.0!2d79.07!3d12.22!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52c5555555%3A0x5678!2sTiruvannamalai!5e0!3m2!1sen!2sin!4v1234567891',
-      mapLink: 'https://maps.google.com/?q=Tiruvannamalai+606805',
+      mapLink: 'https://www.google.com/maps?q=12.326180458068848,79.07335662841797&z=17&hl=en',
     },
   ];
 
@@ -381,7 +381,7 @@ const ContactPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {branches.map((branch, i) => (
               <motion.div key={i}
-                className="bg-white rounded-3xl shadow-[0_8px_40px_rgba(0,0,0,0.07)] border border-gray-100 overflow-hidden flex flex-col"
+                className="bg-white shadow-[0_8px_40px_rgba(0,0,0,0.07)] border border-gray-100 overflow-hidden flex flex-col"
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}>
 
@@ -398,7 +398,7 @@ const ContactPage = () => {
                   />
                   {/* Open in Google Maps overlay button */}
                   <a href={branch.mapLink} target="_blank" rel="noreferrer"
-                    className="absolute bottom-3 right-3 flex items-center gap-1.5 bg-white text-[#0B1C40] text-[12px] font-bold px-3 py-2 rounded-lg shadow-md hover:bg-[#F23B4E] hover:text-white transition-all duration-200">
+                    className="absolute bottom-3 right-3 flex items-center gap-1.5 bg-white text-[#0B1C40] text-[12px] font-bold px-3 py-2 shadow-md hover:bg-[#F23B4E] hover:text-white transition-all duration-200">
                     <ExternalLink size={13} />
                     Google Map
                   </a>
@@ -434,7 +434,7 @@ const ContactPage = () => {
                   </div>
 
                   <a href={branch.mapLink} target="_blank" rel="noreferrer"
-                    className="mt-auto inline-flex items-center justify-center gap-2 bg-[#0B1C40] hover:bg-[#F23B4E] text-white py-3 px-5 rounded-xl font-bold text-[14px] transition-all duration-300 hover:-translate-y-0.5">
+                    className="mt-auto inline-flex items-center justify-center gap-2 bg-[#0B1C40] hover:bg-[#F23B4E] text-white py-3 px-5 font-bold text-[14px] transition-all duration-300 hover:-translate-y-0.5">
                     <ExternalLink size={15} />
                     Open in Google Maps
                   </a>

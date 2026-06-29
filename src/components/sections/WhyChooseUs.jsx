@@ -32,9 +32,11 @@ const WhyChooseUs = () => {
         {/* Header */}
         <div className="text-center mb-8 md:mb-12">
           <div className="flex items-center justify-center gap-2 md:gap-4 mb-2 md:mb-3">
-            <div className="h-[2px] w-8 md:w-10 bg-[#F23B4E]"></div>
-            <span className="text-[#F23B4E] font-bold tracking-widest text-[11px] md:text-[13px] uppercase">Why Choose Us</span>
-            <div className="h-[2px] w-8 md:w-10 bg-[#F23B4E]"></div>
+            <div className="flex items-center gap-3 md:gap-4 mb-2 md:mb-3">
+            <div className="h-[1px] w-10 md:w-16 bg-[#F23B4E]"></div>
+            <span className="text-[#F23B4E] font-bold tracking-widest text-[12px] md:text-[14px] uppercase">Why Choose Us</span>
+            <div className="h-[1px] w-10 md:w-16 bg-[#F23B4E]"></div>
+          </div>
           </div>
           <h2 className="text-2xl md:text-3xl font-[800] text-[#0B1C40] leading-[1.2]">
             Why Choose Us
@@ -46,7 +48,7 @@ const WhyChooseUs = () => {
           {reasons.map((reason, index) => (
             <motion.div 
               key={index}
-              className="flex flex-col items-center text-center bg-white p-4 md:p-6 rounded-xl border border-gray-100 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] transition-all duration-300"
+              className="flex flex-col items-center text-center bg-white p-4 md:p-6 rounded-none border border-gray-100 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] transition-all duration-300"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

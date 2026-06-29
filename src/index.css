@@ -4,7 +4,7 @@
   --color-primary: #0056D2;
   --color-secondary: #00AEEF;
   --color-accent: #00C853;
-  --font-sans: "Inter", "system-ui", "sans-serif";
+  --font-sans: "Cormorant Garamond", "system-ui", "sans-serif";
 }
 
 @layer base {
@@ -14,6 +14,32 @@
     font-family: theme('font.sans');
     overflow-x: hidden;
     width: 100%;
+    font-weight: 400;
+    line-height: 1.7;
+    letter-spacing: 0.3px;
+  }
+
+  h1, .h1 {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  h2, .h2 {
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  h3, .h3 {
+    font-weight: 500;
+  }
+
+  button, .btn {
+    font-weight: 500;
+  }
+
+  nav a, .nav-link {
+    font-weight: 500;
   }
 
 .testimonial-slider-container .slick-dots li button:before {
@@ -25,14 +51,15 @@
 }
 
 @keyframes marquee {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .animate-marquee {
-  display: inline-block;
+  display: flex;
+  width: max-content;
   white-space: nowrap;
-  animation: marquee 50s linear infinite;
+  animation: marquee 40s linear infinite;
 }
 
 .animate-marquee:hover {

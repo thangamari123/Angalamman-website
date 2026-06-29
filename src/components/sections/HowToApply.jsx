@@ -49,10 +49,10 @@ const HowToApply = () => {
 
     return (
       <div key={index} className="h-full px-1 sm:px-0">
-        <div className={`${bgClass} rounded-2xl md:rounded-[2rem] shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] hover:-translate-y-1.5 transition-all duration-500 relative group flex flex-col z-10 h-full overflow-hidden border border-white`}>
+        <div className={`${bgClass} shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] hover:-translate-y-1.5 transition-all duration-500 relative group flex flex-col z-10 h-full overflow-hidden border border-white`}>
           <div className="h-[110px] md:h-[180px] relative overflow-hidden">
             <div className="absolute inset-0 bg-black/10 z-10 mix-blend-overlay transition-opacity duration-500 group-hover:bg-transparent"></div>
-            <div className="absolute top-3 left-3 md:top-4 md:left-4 w-8 h-8 md:w-10 md:h-10 ${tagBg} text-white rounded-lg md:rounded-xl flex items-center justify-center text-[14px] md:text-[16px] font-[900] shadow-md z-20 bg-[#0B1C40]" style={{ backgroundColor: isRed ? '#F23B4E' : '#0B1C40' }}>
+            <div className="absolute top-3 left-3 md:top-4 md:left-4 w-8 h-8 md:w-10 md:h-10 text-white flex items-center justify-center text-[14px] md:text-[16px] font-[900] shadow-md z-20 bg-[#0B1C40]" style={{ backgroundColor: isRed ? '#F23B4E' : '#0B1C40' }}>
               {step.id}
             </div>
             <img src={step.img} alt={step.title.replace('\n', ' ')} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
@@ -74,14 +74,14 @@ const HowToApply = () => {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-b from-white to-gray-50/50 overflow-hidden">
+    <section className="py-10 md:py-16 bg-gradient-to-b from-white to-gray-50/50 overflow-hidden">
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Header Section */}
         <div className="text-center mb-10 md:mb-16">
-          <div className="flex items-center justify-center gap-3 mb-3">
-            <div className="h-[2px] w-8 md:w-12 bg-[#F23B4E] rounded-full"></div>
-            <span className="text-[#F23B4E] font-bold tracking-wider text-[12px] md:text-[14px] uppercase bg-[#FFF5F6] px-3 py-1 rounded-full">HOW TO APPLY</span>
-            <div className="h-[2px] w-8 md:w-12 bg-[#F23B4E] rounded-full"></div>
+          <div className="flex items-center justify-center gap-3 md:gap-4 mb-4 md:mb-6">
+            <div className="h-[1px] w-10 md:w-16 bg-[#F23B4E]"></div>
+            <span className="text-[#F23B4E] font-bold tracking-widest text-[12px] md:text-[14px] uppercase">How To Apply</span>
+            <div className="h-[1px] w-10 md:w-16 bg-[#F23B4E]"></div>
           </div>
           
           <h2 className="text-xl md:text-3xl lg:text-4xl font-[800] text-[#0B1C40] leading-tight">

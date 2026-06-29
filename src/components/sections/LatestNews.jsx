@@ -39,7 +39,7 @@ const LatestNews = () => {
 
   const renderCard = (news, index) => (
     <div key={index} className="h-full">
-      <div className="bg-white rounded-[20px] shadow-[0_10px_40px_rgba(0,0,0,0.04)] overflow-hidden border border-gray-100 flex flex-col group hover:-translate-y-2 transition-transform duration-300 h-full">
+      <div className="bg-white shadow-[0_10px_40px_rgba(0,0,0,0.04)] overflow-hidden border border-gray-100 flex flex-col group hover:-translate-y-2 transition-transform duration-300 h-full">
         {/* Image Container */}
         <div className="h-[200px] md:h-[280px] overflow-hidden relative">
           <img 

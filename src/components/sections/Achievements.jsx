@@ -59,10 +59,10 @@ const Achievements = () => {
         {/* Header Section */}
         <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
           {/* Star with lines */}
-          <div className="flex items-center justify-center gap-3 md:gap-4 mb-3 md:mb-5">
-            <div className="w-8 md:w-12 h-[2px] bg-[#E53935]"></div>
-            <Star size={16} fill="#E53935" className="text-[#E53935] md:w-5 md:h-5" />
-            <div className="w-8 md:w-12 h-[2px] bg-[#E53935]"></div>
+          <div className="flex items-center justify-center gap-3 md:gap-4 mb-2 md:mb-4">
+            <div className="h-[1px] w-10 md:w-16 bg-[#F23B4E]"></div>
+            <span className="text-[#F23B4E] font-bold tracking-widest text-[12px] md:text-[14px] uppercase">Our Legacy</span>
+            <div className="h-[1px] w-10 md:w-16 bg-[#F23B4E]"></div>
           </div>
           
           <h2 className="text-xl sm:text-2xl md:text-3xl font-[900] text-[#0B1C40] mb-4 md:mb-6 tracking-tight leading-tight">
@@ -74,7 +74,7 @@ const Achievements = () => {
           </p>
 
           {/* Quote Banner */}
-          <div className="bg-[#0B1C40] rounded-xl py-3 px-5 md:py-4 md:px-10 inline-flex items-center shadow-lg mx-auto relative overflow-hidden group hover:scale-[1.02] transition-transform duration-300 w-full sm:w-auto">
+          <div className="bg-[#0B1C40] rounded-none py-3 px-5 md:py-4 md:px-10 inline-flex items-center shadow-lg mx-auto relative overflow-hidden group hover:scale-[1.02] transition-transform duration-300 w-full sm:w-auto">
             <span className="text-[#E53935] text-5xl md:text-6xl font-serif absolute left-1 md:left-2 -top-1 md:-top-2 opacity-80 leading-none">"</span>
             <p className="text-white font-bold italic text-sm md:text-base lg:text-lg z-10 px-5 sm:px-6 md:px-8 tracking-wide">
               Empowering students to become the healthcare leaders of tomorrow.
@@ -92,7 +92,7 @@ const Achievements = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
-              className="bg-white rounded-2xl md:rounded-[2rem] p-4 sm:p-5 md:p-6 lg:p-8 flex flex-col items-center text-center shadow-[0_4px_15px_rgb(0,0,0,0.03)] hover:shadow-[0_10px_30px_rgb(0,0,0,0.08)] hover:-translate-y-1 md:hover:-translate-y-2 transition-all duration-300 border border-gray-100 h-full"
+              className="bg-white rounded-none p-4 sm:p-5 md:p-6 lg:p-8 flex flex-col items-center text-center shadow-[0_4px_15px_rgb(0,0,0,0.03)] hover:shadow-[0_10px_30px_rgb(0,0,0,0.08)] hover:-translate-y-1 md:hover:-translate-y-2 transition-all duration-300 border border-gray-100 h-full"
             >
               <div className={`w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full ${item.bg} flex items-center justify-center mb-3 sm:mb-4 md:mb-5 shrink-0`}>
                 {item.icon}

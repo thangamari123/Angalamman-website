@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
-import FloatingWhatsApp from './components/layout/FloatingWhatsApp';
+import FloatingSocials from './components/layout/FloatingSocials';
 import MobileStickyBar from './components/layout/MobileStickyBar';
 import AdmissionPopup from './components/layout/AdmissionPopup';
 
@@ -18,6 +18,10 @@ import FAQPage from './pages/FAQPage';
 import ContactPage from './pages/ContactPage';
 import GalleryPage from './pages/GalleryPage';
 import StudentPortal from './pages/StudentPortal';
+import FacilitiesPage from './pages/FacilitiesPage';
+import NewsEventsPage from './pages/NewsEventsPage';
+import CareersPage from './pages/CareersPage';
+import AdminPage from './pages/AdminPage';
 
 function App() {
   return (
@@ -39,12 +43,16 @@ function App() {
             <Route path="/application" element={<Application />} />
             <Route path="/gallery" element={<GalleryPage />} />
             <Route path="/student-portal" element={<StudentPortal />} />
+            <Route path="/facilities" element={<FacilitiesPage />} />
+            <Route path="/news-events" element={<NewsEventsPage />} />
+            <Route path="/careers" element={<CareersPage />} />
+            <Route path="/admin" element={<AdminPage />} />
           </Routes>
         </div>
 
         <Footer />
         <MobileStickyBar />
-        <FloatingWhatsApp />
+        <FloatingSocials />
         <AdmissionPopup />
       </div>
     </Router>

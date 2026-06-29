@@ -100,62 +100,43 @@ const AboutPage = () => {
         <div className="container mx-auto px-4 sm:px-8 md:px-12 lg:px-16 max-w-[1200px]">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
 
-            {/* Left – Image + Graduates Badge */}
+            {/* Left – Text */}
             <motion.div
-              className="w-full lg:w-[45%] relative"
+              className="w-full lg:w-1/2 pt-6 lg:pt-0"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className="rounded-3xl overflow-hidden shadow-2xl aspect-[4/3]">
-                <img
-                  src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=900"
-                  alt="Overview"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              {/* Graduates Badge */}
-              <div className="absolute -bottom-6 -right-4 sm:-right-6 bg-[#F23B4E] text-white rounded-2xl px-6 py-5 shadow-[0_12px_40px_rgba(242,59,78,0.4)] text-center min-w-[130px]">
-                <div className="flex items-end justify-center gap-1">
-                  <span className="text-4xl font-[900] leading-none">211</span>
-                  <span className="text-2xl font-bold mb-0.5">+</span>
-                </div>
-                <p className="text-[12px] font-bold mt-1 leading-tight opacity-90">Our graduates<br/>programs</p>
-              </div>
+              <h3 className="text-[#0B1C40] font-bold text-2xl md:text-3xl mb-1">About</h3>
+              <h2 className="text-4xl sm:text-5xl md:text-[52px] font-[900] text-[#0B1C40] leading-none mb-6">
+                Sri Angalamman <br /> Paramedical Institute
+              </h2>
+              <p className="text-[#0B1C40] font-bold text-[15px] md:text-[17px] leading-relaxed mb-5">
+                This college has been started with a vision to enable students to gain hands-on exposure to the latest skills in the Healthcare Industry. The healthcare Industry is a very dynamic industry with changes happening at a very rapid pace.
+              </p>
+              <p className="text-[#4F5B73] text-[15px] md:text-[16px] leading-relaxed">
+                We endeavour to train our students on the latest skills. The promoters of this college have over 4 years of experience in the Education / Teaching field. They have been associated with some of the leading Colleges for various courses.
+              </p>
             </motion.div>
 
-            {/* Right – Text */}
+            {/* Right – Image */}
             <motion.div
-              className="w-full lg:w-[55%] pt-6 lg:pt-0"
+              className="w-full lg:w-1/2 relative"
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="h-[3px] w-10 bg-[#F23B4E] rounded-full"></div>
-                <span className="text-[#F23B4E] font-bold tracking-widest text-[11px] md:text-sm uppercase">About Sri Angalamman</span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl md:text-[36px] font-[900] text-[#0B1C40] leading-tight mb-6">
-                About Sri Angalamman :
-              </h2>
-              <p className="text-[#4F5B73] text-[15px] md:text-[17px] leading-relaxed mb-5">
-                This college has been started with a vision to enable students to gain hands-on exposure to the latest skills in the Healthcare Industry. The healthcare Industry is a very dynamic industry with changes happening at a very rapid pace.
-              </p>
-              <p className="text-[#4F5B73] text-[15px] md:text-[17px] leading-relaxed mb-8">
-                We endeavour to train our students on the latest skills. The promoters of this college have over 4 years of experience in the Education / Teaching field. They have been associated with some of the leading Colleges for various courses.
-              </p>
-
-              <div className="flex flex-wrap gap-4 mt-2">
-                <Link
-                  to="/courses"
-                  className="inline-flex items-center gap-2 text-[#F23B4E] font-bold text-[15px] border-b-2 border-[#F23B4E] pb-0.5 hover:text-[#0B1C40] hover:border-[#0B1C40] transition-colors"
-                >
-                  More Graduates Programs <ArrowRight size={16} />
-                </Link>
+              <div className="w-full shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
+                <img
+                  src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=900"
+                  alt="Overview"
+                  className="w-full h-auto object-cover"
+                />
               </div>
             </motion.div>
+
           </div>
         </div>
       </section>

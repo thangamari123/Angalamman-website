@@ -153,45 +153,18 @@ const CoursesPage = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.07 }}
                 onClick={() => openCourse(course)}
-                className="bg-white rounded-xl md:rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.06)] border border-gray-100 hover:shadow-[0_12px_35px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 group cursor-pointer flex flex-col"
+                className="relative aspect-[4/5] md:aspect-square overflow-hidden group cursor-pointer shadow-md hover:shadow-xl transition-shadow"
               >
-                {/* Image */}
-                <div className="w-full aspect-[4/3] overflow-hidden relative">
-                  <img
-                    src={course.image}
-                    alt={course.title}
-                    className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  <span
-                    className="absolute bottom-2 left-2 md:bottom-3 md:left-3 text-white text-[10px] md:text-[12px] font-bold uppercase tracking-widest bg-[#F23B4E] px-2 py-0.5 md:px-3 md:py-1 rounded-full"
-                    style={{ backgroundColor: course.color }}
-                  >
-                    {course.duration}
-                  </span>
-                </div>
-
-                {/* Card Body */}
-                <div className="p-3 md:p-5 flex flex-col gap-1 md:gap-2 flex-grow">
-                  <div className="flex items-center gap-2">
-                    <div
-                      className="w-7 h-7 md:w-10 md:h-10 rounded-lg flex items-center justify-center text-white font-[900] text-[11px] md:text-[15px] shrink-0 shadow"
-                      style={{ backgroundColor: course.color }}
-                    >
-                      {course.id}
-                    </div>
-                    <h3 className="text-[13px] md:text-[18px] font-[900] text-[#0B1C40] leading-tight group-hover:text-[#F23B4E] transition-colors">
-                      {course.title}
-                    </h3>
-                  </div>
-                  <p className="text-[#4F5B73] text-[11px] md:text-[13.5px] leading-snug pl-9 md:pl-12">
+                <img
+                  src={course.image}
+                  alt={course.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 w-full p-4 md:p-6 text-center flex items-end justify-center h-full">
+                  <h3 className="text-white font-serif text-[14px] md:text-[18px] lg:text-[20px] leading-snug drop-shadow-md px-2">
                     {course.fullTitle}
-                  </p>
-                  <div className="mt-auto pt-2 md:pt-3 pl-9 md:pl-12">
-                    <span className="inline-flex items-center gap-1 text-[11px] md:text-[13px] font-bold text-[#F23B4E] hover:underline">
-                      View Details <ChevronRight size={13} strokeWidth={3} />
-                    </span>
-                  </div>
+                  </h3>
                 </div>
               </motion.div>
             ))}
